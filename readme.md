@@ -8,3 +8,6 @@ Dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 
 ## For reference to potential models:
 - [Survey on Transformer Based Vision Models](https://arxiv.org/pdf/2304.09854.pdf)
+
+## GitHub Repos to Check Out
+- [nnUNet](https://github.com/MIC-DKFZ/nnUNet)
