@@ -11,3 +11,4 @@ Dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 
 ## GitHub Repos to Check Out
 - [nnUNet](https://github.com/MIC-DKFZ/nnUNet)
+- [U-Mamba](https://github.com/bowang-lab/U-Mamba)

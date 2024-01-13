@@ -7,6 +7,8 @@ name = "pypi"
 ipykernel = "*"
 torchvision = "*"
 scikit-learn = "*"
+dynamic-network-architectures = "*"
+nnunetv2 = "*"
 
 [dev-packages]
 
