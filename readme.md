@@ -12,3 +12,6 @@ Dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 ## GitHub Repos to Check Out
 - [nnUNet](https://github.com/MIC-DKFZ/nnUNet)
 - [U-Mamba](https://github.com/bowang-lab/U-Mamba)
+
+## Eye Dataset - Past Competition & Results
+- [Past Competitions](https://www.kaggle.com/competitions/aptos2019-blindness-detection/discussion/97612)
