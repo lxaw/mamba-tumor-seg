@@ -9,6 +9,9 @@ torchvision = "*"
 scikit-learn = "*"
 dynamic-network-architectures = "*"
 nnunetv2 = "*"
+openpyxl = "*"
+pandas = "*"
+tensorflow = {extras = ["and-cuda"], version = "*"}
 
 [dev-packages]
 
