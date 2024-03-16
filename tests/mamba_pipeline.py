@@ -1,3 +1,14 @@
+################################
+#
+# Clay Crews, Lex Whalen
+# Pyramidal U-Mamba
+# 
+# Explanation: 
+# We take the original U-Mamba architecture (see here: https://github.com/bowang-lab/U-Mamba) and add
+# Pyramidal Pooling 
+#
+
+
 import torch
 from torch import nn
 from mamba_ssm import Mamba
@@ -25,6 +36,7 @@ from dynamic_network_architectures.building_blocks.helper import get_matching_co
 from dynamic_network_architectures.building_blocks.residual_encoders import ResidualEncoder
 from dynamic_network_architectures.building_blocks.plain_conv_encoder import PlainConvEncoder
 from dynamic_network_architectures.building_blocks.residual import StackedResidualBlocks
+
 from dynamic_network_architectures.building_blocks.residual_encoders import ResidualEncoder
 from dynamic_network_architectures.building_blocks.residual import BasicBlockD, BottleneckD
 from torch.nn.modules.conv import _ConvNd
@@ -44,7 +56,10 @@ from brain_mri_dataset import BrainMRIDatasetBuilder,BrainMRIDataset
 from transforms import BrainMRITransforms
 
 from dice_loss import DiceLoss
+
 from calculate_iou import calculate_iou
+
+from pyramidal_pooling import PyramidalPoolingModule
 
 # Ignore Warnings
 import warnings
@@ -62,8 +77,10 @@ val_data = BrainMRIDataset(val_df, transform = transform_ ,  mask_transform= tra
 test_data = BrainMRIDataset(test_df, transform = transform_ ,  mask_transform= transform_)
 
 # batch
-batch_size =1
+batch_size = 64
 
+###
+# Data loaders
 train_dataloader = DataLoader(train_data, batch_size = batch_size , shuffle = True)
 val_dataloader = DataLoader(val_data, batch_size = batch_size , shuffle = True)
 test_dataloader = DataLoader(test_data, batch_size = batch_size , shuffle = True)
@@ -171,14 +188,12 @@ class UNetResDecoder(nn.Module):
         for s in range(len(self.encoder.strides) - 1):
             skip_sizes.append([i // j for i, j in zip(input_size, self.encoder.strides[s])])
             input_size = skip_sizes[-1]
-        # print(skip_sizes)
 
         assert len(skip_sizes) == len(self.stages)
 
         # our ops are the other way around, so let's match things up
         output = np.int64(0)
         for s in range(len(self.stages)):
-            # print(skip_sizes[-(s+1)], self.encoder.output_channels[-(s+2)])
             # conv blocks
             output += self.stages[s].compute_conv_feature_map_size(skip_sizes[-(s+1)])
             # trans conv
@@ -208,7 +223,8 @@ class UMambaBot(nn.Module):
                  nonlin_kwargs: dict = None,
                  block: Union[Type[BasicBlockD], Type[BottleneckD]] = BasicBlockD,
                  bottleneck_channels: Union[int, List[int], Tuple[int, ...]] = None,
-                 stem_channels: int = None
+                 stem_channels: int = None,
+                 ppm_pool_sizes=None
                  ):
         super().__init__()
         n_blocks_per_stage = n_conv_per_stage
@@ -227,6 +243,10 @@ class UMambaBot(nn.Module):
                                        n_blocks_per_stage, conv_bias, norm_op, norm_op_kwargs, dropout_op,
                                        dropout_op_kwargs, nonlin, nonlin_kwargs, block, bottleneck_channels,
                                        return_skips=True, disable_default_stem=False, stem_channels=stem_channels)
+        if ppm_pool_sizes:
+            self.ppm = PyramidalPoolingModule(input_channels=features_per_stage[-1],pool_sizes=ppm_pool_sizes,output_channels=[64,128,256,64]) # adjust as needed, ensure sum is 512
+        else:
+            self.ppm = None
         # layer norm
         self.ln = nn.LayerNorm(features_per_stage[-1])
         self.mamba = Mamba(
@@ -239,13 +259,22 @@ class UMambaBot(nn.Module):
 
     def forward(self, x):
         skips = self.encoder(x)
-        middle_feature = skips[-1]
-        B, C = middle_feature.shape[:2]
-        n_tokens = middle_feature.shape[2:].numel()
-        img_dims = middle_feature.shape[2:]
-        middle_feature_flat = middle_feature.view(B, C, n_tokens).transpose(-1, -2)
-        middle_feature_flat = self.ln(middle_feature_flat) 
-        out = self.mamba(middle_feature_flat)
+        ###
+        # Pyramidal Pooling
+        if self.ppm:
+            fused_features = self.ppm(skips[-1])
+            # fused_features = skips[-1]
+        else:
+            fused_features = skips[-1]
+            # print(fused_features.shape)
+        
+        B, C = fused_features.shape[:2] # B = batch,
+        n_tokens = fused_features.shape[2:].numel()
+        img_dims = fused_features.shape[2:]
+        fused_features_flat = fused_features.view(B, C, n_tokens).transpose(-1, -2)
+        # this is issue line
+        fused_features_flat = self.ln(fused_features_flat)
+        out = self.mamba(fused_features_flat)
         out = out.transpose(-1, -2).view(B, C, *img_dims)
         skips[-1] = out
         
@@ -275,6 +304,8 @@ model = UMambaBot(
     dropout_op=None,
     nonlin=nn.LeakyReLU,
     nonlin_kwargs={'inplace': True},
+    # Pyramidal Pooling
+    ppm_pool_sizes=(1,2,3,6)
 ).to(device)
 
 total_params = sum(p.numel() for p in model.parameters())

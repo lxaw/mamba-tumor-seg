@@ -19,7 +19,6 @@ class BrainMRIDatasetBuilder:
     def create_df(self):
         images_paths = []
         masks_paths = glob(f'{self.data_dir}/*/*_mask*')
-        print(masks_paths)
 
         for i in masks_paths:
             images_paths.append(i.replace('_mask', ''))
