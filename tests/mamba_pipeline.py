@@ -36,69 +36,33 @@ from dynamic_network_architectures.building_blocks.helper import get_matching_in
 from nnunetv2.utilities.network_initialization import InitWeights_He
 from mamba_ssm import Mamba
 
+
+## Custom class imports
+#
+from brain_mri_dataset import BrainMRIDatasetBuilder,BrainMRIDataset
+
+from transforms import BrainMRITransforms
+
+from dice_loss import DiceLoss
+from calculate_iou import calculate_iou
+
 # Ignore Warnings
 import warnings
 warnings.filterwarnings("ignore")
 
-# function to create dataframe
-def create_df(data_dir):
-    images_paths = []
-    masks_paths = glob(f'{data_dir}/*/*_mask*')
-    print(masks_paths)
 
-    for i in masks_paths:
-        images_paths.append(i.replace('_mask', ''))
+builder = BrainMRIDatasetBuilder("../datasets/tumor_segs")
+df = builder.create_df()
+train_df, val_df, test_df = builder.split_df(df)
 
-    df = pd.DataFrame(data= {'images_paths': images_paths, 'masks_paths': masks_paths})
+transform_ = BrainMRITransforms()
 
-    return df
-
-# Function to split dataframe into train, valid, test
-def split_df(df):
-    # create train_df
-    train_df, dummy_df = train_test_split(df, train_size= 0.8)
-
-    # create valid_df and test_df
-    valid_df, test_df = train_test_split(dummy_df, train_size= 0.5)
-
-    return train_df, valid_df, test_df
-
-
-class Brain_mri_dataset(torch.utils.data.Dataset):
-    def __init__(self, dataframe  ,  transform = None ,  mask_transform= None):
-        self.df = dataframe #pd.read_csv(annotations_file)
-        self.transform = transform
-        self.mask_transform = mask_transform
-
-    def __len__(self):
-        return len(self.df)
-
-    def __getitem__(self , idx):
-        image = cv2.imread(self.df.iloc[idx, 0]) / 255.0
-        mask = cv2.imread(self.df.iloc[idx, 1])  / 255.0
-        mask = np.where(mask>=0.5, 1., 0.)
-        if self.transform:
-            image = self.transform(image)
-        if self.mask_transform:
-            mask = self.mask_transform(mask)
-
-        return image, mask
-
-data_path = "../datasets/lgg-mri-segmentation/kaggle_3m"
-df = create_df(data_path)
-train_df, val_df, test_df = split_df(df)
-
-transform_ = transforms.Compose([
-    transforms.ToTensor(),
-    transforms.Resize((256, 256))
-])
-
-train_data = Brain_mri_dataset(train_df, transform = transform_ ,  mask_transform= transform_)
-val_data = Brain_mri_dataset(val_df, transform = transform_ ,  mask_transform= transform_)
-test_data = Brain_mri_dataset(test_df, transform = transform_ ,  mask_transform= transform_)
+train_data = BrainMRIDataset(train_df, transform = transform_ ,  mask_transform= transform_)
+val_data = BrainMRIDataset(val_df, transform = transform_ ,  mask_transform= transform_)
+test_data = BrainMRIDataset(test_df, transform = transform_ ,  mask_transform= transform_)
 
 # batch
-batch_size =64
+batch_size =1
 
 train_dataloader = DataLoader(train_data, batch_size = batch_size , shuffle = True)
 val_dataloader = DataLoader(val_data, batch_size = batch_size , shuffle = True)
@@ -109,25 +73,24 @@ class UNetResDecoder(nn.Module):
     def __init__(self,
                  encoder: Union[PlainConvEncoder, ResidualEncoder],
                  num_classes: int,
-                 n_conv_per_stage: Union[int, Tuple[int, ...], List[int]],
-                 deep_supervision, nonlin_first: bool = False):
+                 n_conv_per_stage: Union[int, Tuple[int, ...], List[int]]):
         """
-        This class needs the skips of the encoder as input in its forward.
+        This class requires the skip connections from the encoder as input during its forward pass.
 
-        the encoder goes all the way to the bottleneck, so that's where the decoder picks up. stages in the decoder
-        are sorted by order of computation, so the first stage has the lowest resolution and takes the bottleneck
-        features and the lowest skip as inputs
-        the decoder has two (three) parts in each stage:
-        1) conv transpose to upsample the feature maps of the stage below it (or the bottleneck in case of the first stage)
-        2) n_conv_per_stage conv blocks to let the two inputs get to know each other and merge
-        3) (optional if deep_supervision=True) a segmentation output Todo: enable upsample logits?
-        :param encoder:
-        :param num_classes:
-        :param n_conv_per_stage:
-        :param deep_supervision:
+        The encoder progresses to the bottleneck, where the decoder takes over. The decoder stages are organized based on computation order, with the initial stage having the lowest resolution. In this stage, the decoder takes the bottleneck features and the lowest-resolution skip connection as inputs.
+
+        Each stage of the decoder comprises three parts:
+
+        1) Convolution transpose to upsample the feature maps from the stage below it (or from the bottleneck in the case of the first stage).
+        2) Several convolution blocks to facilitate interaction and merging between the two input sources.
+        3) (Optional if `deep_supervision=True`) A segmentation output. Consider enabling upsampling of logits.
+
+        Parameters:
+        - `encoder`: The encoder network.
+        - `num_classes`: Number of output classes.
+        - `n_conv_per_stage`: Number of convolutional blocks per decoder stage.
         """
         super().__init__()
-        self.deep_supervision = deep_supervision
         self.encoder = encoder
         self.num_classes = num_classes
         n_stages_encoder = len(encoder.output_channels)
@@ -168,9 +131,6 @@ class UNetResDecoder(nn.Module):
                 nonlin_kwargs = encoder.nonlin_kwargs,
             ))
 
-            # we always build the deep supervision outputs so that we can always load parameters. If we don't do this
-            # then a model trained with deep_supervision=True could not easily be loaded at inference time where
-            # deep supervision is not needed. It's just a convenience thing
             seg_layers.append(encoder.conv_op(input_features_skip, num_classes, 1, 1, 0, bias=True))
 
         self.stages = nn.ModuleList(stages)
@@ -189,19 +149,14 @@ class UNetResDecoder(nn.Module):
             x = self.transpconvs[s](lres_input)
             x = torch.cat((x, skips[-(s+2)]), 1)
             x = self.stages[s](x)
-            if self.deep_supervision:
-                seg_outputs.append(self.seg_layers[s](x))
-            elif s == (len(self.stages) - 1):
+            if s == (len(self.stages) - 1):
                 seg_outputs.append(self.seg_layers[-1](x))
             lres_input = x
 
         # invert seg outputs so that the largest segmentation prediction is returned first
         seg_outputs = seg_outputs[::-1]
 
-        if not self.deep_supervision:
-            r = seg_outputs[0]
-        else:
-            r = seg_outputs
+        r = seg_outputs[0]
         return r
 
     def compute_conv_feature_map_size(self, input_size):
@@ -229,7 +184,7 @@ class UNetResDecoder(nn.Module):
             # trans conv
             output += np.prod([self.encoder.output_channels[-(s+2)], *skip_sizes[-(s+1)]], dtype=np.int64)
             # segmentation
-            if self.deep_supervision or (s == (len(self.stages) - 1)):
+            if s == (len(self.stages) - 1):
                 output += np.prod([self.num_classes, *skip_sizes[-(s+1)]], dtype=np.int64)
         return output
     
@@ -251,7 +206,6 @@ class UMambaBot(nn.Module):
                  dropout_op_kwargs: dict = None,
                  nonlin: Union[None, Type[torch.nn.Module]] = None,
                  nonlin_kwargs: dict = None,
-                 deep_supervision: bool = False,
                  block: Union[Type[BasicBlockD], Type[BottleneckD]] = BasicBlockD,
                  bottleneck_channels: Union[int, List[int], Tuple[int, ...]] = None,
                  stem_channels: int = None
@@ -281,7 +235,7 @@ class UMambaBot(nn.Module):
                         d_conv=4,    
                         expand=2,   
                     )
-        self.decoder = UNetResDecoder(self.encoder, num_classes, n_conv_per_stage_decoder, deep_supervision)
+        self.decoder = UNetResDecoder(self.encoder, num_classes, n_conv_per_stage_decoder)
 
     def forward(self, x):
         skips = self.encoder(x)
@@ -303,38 +257,6 @@ class UMambaBot(nn.Module):
                                                                                 "Give input_size=(x, y(, z))!"
         return self.encoder.compute_conv_feature_map_size(input_size) + self.decoder.compute_conv_feature_map_size(input_size)
 
-class DiceLoss(nn.Module):
-    def __init__(self):
-        super(DiceLoss, self).__init__()
-
-    def forward(self, logits, targets):
-        smooth = 100
-        num = targets.size(0)
-
-        # Apply sigmoid to each tensor in the list
-        probs = [torch.sigmoid(logit) for logit in logits]
-
-        # Stack the tensors along a new dimension
-        probs = torch.stack(probs)
-
-        m1 = probs.view(num, -1)
-        m2 = targets.view(num, -1)
-        intersection = (m1 * m2).sum()
-
-        return 1 - ((2. * intersection + smooth) / (m1.sum() + m2.sum() + smooth))
-
-# def IOU(y_true, y_pred, smooth=1e-5):
-#     intersection = (y_true * y_pred).sum()
-#     union = (y_true + y_pred).sum() - intersection + smooth
-#     iou = (intersection + smooth) / union
-#     return iou
-def calculate_iou(pred_mask, true_mask):
-    intersection = torch.logical_and(pred_mask, true_mask).sum()
-    union = torch.logical_or(pred_mask, true_mask).sum()
-
-    iou = intersection / union if union != 0 else 0.0
-    return iou
-
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 model = UMambaBot(
@@ -353,7 +275,6 @@ model = UMambaBot(
     dropout_op=None,
     nonlin=nn.LeakyReLU,
     nonlin_kwargs={'inplace': True},
-    deep_supervision=False
 ).to(device)
 
 total_params = sum(p.numel() for p in model.parameters())
@@ -431,7 +352,7 @@ with open('out.txt', 'w') as f:
 model_state_dict = model.state_dict()
 
 # Specify the file path where you want to save the weights
-file_path = 'model_weights.pth'
+file_path = 'mamba_pipeline_py_weights.pth'
 
 # Save the model state_dict to the specified file
 torch.save(model_state_dict, file_path)

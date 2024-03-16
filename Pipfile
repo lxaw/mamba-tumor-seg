@@ -12,6 +12,8 @@ nnunetv2 = "*"
 openpyxl = "*"
 pandas = "*"
 tensorflow = {extras = ["and-cuda"], version = "*"}
+mamba-ssm = "*"
+causal-conv1d = "==1.1.1"
 
 [dev-packages]
 
