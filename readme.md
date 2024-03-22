@@ -1,5 +1,7 @@
-Dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
+## Overview:
+This project uses Mamba blocks and some other modules to segment tumors.
 
+Dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 
 ## Relevant Papers
 
