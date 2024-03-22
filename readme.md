@@ -2,7 +2,7 @@
 This project uses Mamba blocks and some other modules to segment tumors.
 
 ## Example segmentation:
-![Example segmentation images.]([http://url/to/img.png](https://github.com/lxaw/mamba-segment/blob/main/example_segmentation.png))
+![Example segmentation images.](https://github.com/lxaw/mamba-segment/blob/main/example_segmentation.png?raw=true)
 
 Dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 
