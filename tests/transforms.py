@@ -2,6 +2,7 @@
 # Clay Crews, Lex Whalen
 #
 # Dataset class for Brain MRI Transforms.
+# Only reshapes to 256x256.
 # For use in later pipelines.
 
 from torchvision import transforms

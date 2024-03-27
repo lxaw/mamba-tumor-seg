@@ -9,59 +9,48 @@
 #
 import torch
 import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import DataLoader
+import sys
 
-from mamba_model import UMambaBot
+from tests.mamba_model import UMambaBot
 from dice_loss import DiceLoss
 import torch.optim as optim
 from brain_mri_dataset import BrainMRIDatasetBuilder,BrainMRIDataset
 
 from transforms import BrainMRITransforms
 
-from calculate_iou import calculate_iou
+from metrics import calculate_iou,calculate_dice
+
+import json
+import time
 
 
+# for cuda parallelization
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = UMambaBot(
-    input_channels=3,  # Assuming RGB images with 3 channels
-    n_stages=5,
-    features_per_stage=(32, 64, 128, 256,512),
-    conv_op=nn.Conv2d,  # Assuming 2D convolution
-    kernel_sizes=(3, 3, 3, 3, 3),  # Adjusted kernel sizes for 2D convolution
-    strides=(1, 2, 2, 2, 2),
-    num_classes=3,
-    n_conv_per_stage=(1, 1, 1, 1, 1),
-    n_conv_per_stage_decoder=(1, 1, 1, 1),
-    conv_bias=True,
-    norm_op=nn.InstanceNorm2d,  # Assuming 2D instance normalization
-    norm_op_kwargs={},
-    dropout_op=None,
-    nonlin=nn.LeakyReLU,
-    nonlin_kwargs={'inplace': True},
-    # Pyramidal Pooling
-    ppm_pool_sizes=(1,2,3,6)
-).to(device)
+device_ids = [0,1]
 
-total_params = sum(p.numel() for p in model.parameters())
-trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
-print(f'Total parameters: {total_params}')
-print(f'Trainable parameters: {trainable_params}')
+# Check the total number of CUDA devices
+num_devices = torch.cuda.device_count()
+print("Number of CUDA devices:", num_devices)
+
+# Get the name of each CUDA device
+for i in range(num_devices):
+    device_name = torch.cuda.get_device_name(i)
+    print(f"Device {i}: {device_name}")
+
+# Number parameters
+# total_params = sum(p.numel() for p in model.parameters())
+# trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+# print(f'Total parameters: {total_params}')
+# print(f'Trainable parameters: {trainable_params}')
 
 learning_rate = 0.0003
-
-criterion = DiceLoss()
-optimizer = optim.Adam(
-    model.parameters(),
-    lr=learning_rate)
-
 epochs = 100
 
 train_loss = []
 val_loss = []
 trainIOU = []
 valIOU = []
-
-import sys
 
 builder = BrainMRIDatasetBuilder("../datasets/tumor_segs")
 df = builder.create_df()
@@ -74,71 +63,145 @@ val_data = BrainMRIDataset(val_df, transform = transform_ ,  mask_transform= tra
 test_data = BrainMRIDataset(test_df, transform = transform_ ,  mask_transform= transform_)
 
 # batch
-batch_size = 64
+batch_size = 64*2
+
+# Number of runs of the models
+num_runs = 3
 
 ###
-# Data loaders
-train_dataloader = DataLoader(train_data, batch_size = batch_size , shuffle = True)
-val_dataloader = DataLoader(val_data, batch_size = batch_size , shuffle = True)
-test_dataloader = DataLoader(test_data, batch_size = batch_size , shuffle = True)
-
-# Open a file for writing
-with open('mamba_pipeline.txt', 'w') as f:
-    # Redirect stdout to the file
-
+# Train the model
+def train_model(model,train_dataloader,val_dataloader,train_iter):
+    """
+    Train iter means what number of training are we on
+    We train each model about 3 times
+    """
+    res = {
+        'train_loss':[],
+        'val_loss':[],
+        'train_dice':[],
+        'val_dice':[],
+        'train_iou':[],
+        'val_iou':[],
+        'time':None
+    }
+    start_time=time.time()
     for epoch in range(epochs):
-        total_train_loss = 0
-        total_val_loss = 0
+        total_train_loss = 0.0
         total_train_iou = 0.0
+        total_train_dice = 0.0
 
-        # Training mode
+        total_val_loss = 0.0
+        total_val_iou = 0.0
+        total_val_dice = 0.0
+
         model.train()
-        for img, label in train_dataloader:
-            img, label = img.to(device).float(), label.to(device).float()
+
+        for img,label in train_dataloader:
+            img,label = img.to(device).float(),label.to(device).float()
             optimizer.zero_grad()
             pred = model(img)
-            loss = criterion(pred, label)
+
+            loss = criterion(pred,label)
             total_train_loss += loss.item()
-            iou = calculate_iou(label, pred)
-            total_train_iou += iou.item()
+
+            iou = calculate_iou(pred,label)
+            total_train_iou += iou
+
+            dice = calculate_dice(pred,label)
+            total_train_dice +=dice
+
             loss.backward()
             optimizer.step()
 
-        train_iou = total_train_iou / len(train_dataloader)
-        trainIOU.append(train_iou)
-        train_loss.append(total_train_loss / len(train_dataloader))
-
-        # Validation mode
+        res['train_dice'].append(total_train_dice/len(train_dataloader))
+        res['train_iou'].append(total_train_iou/len(train_dataloader))
+        res['train_loss'].append(total_train_loss/len(train_dataloader))
+        
+        # validation
         model.eval()
-        total_val_iou = 0.0
         with torch.no_grad():
-            for image, label in val_dataloader:
-                image, label = image.to(device).float(), label.to(device).float()
-                pred = model(image)
-                loss = criterion(pred, label)
+            for img,label in val_dataloader:
+                img,label = img.to(device).float(),label.to(device).float()
+                pred = model(img)
+                loss = criterion(pred,label)
+                iou = calculate_iou(label,pred)
+                dice = calculate_dice(label,pred)
+
                 total_val_loss += loss.item()
-                iou = calculate_iou(label, pred)
-                total_val_iou += iou.item()
+                total_val_dice += dice
+                total_val_iou += iou
 
-        val_iou = total_val_iou / len(val_dataloader)
-        valIOU.append(val_iou)
-        total_val_loss = total_val_loss / len(val_dataloader)
-        val_loss.append(total_val_loss)
 
-        # Print and log to the file
-        sys.stdout = f
-        print('Epoch: {}/{}, Train Loss: {:.4f}, Train IOU: {:.4f}, Val Loss: {:.4f}, Val IOU: {:.4f}'.format(epoch + 1, epochs, train_loss[-1], train_iou, total_val_loss, val_iou))
-        sys.stdout = sys.__stdout__
-        print('Epoch: {}/{}, Train Loss: {:.4f}, Train IOU: {:.4f}, Val Loss: {:.4f}, Val IOU: {:.4f}'.format(epoch + 1, epochs, train_loss[-1], train_iou, total_val_loss, val_iou))
 
-    # Restore stdout to its original value
-    sys.stdout = sys.__stdout__
 
-# Assuming your model is named 'model' and you want to save its state_dict
-model_state_dict = model.state_dict()
+            # append data
+            res['val_dice'].append(total_val_dice/len(val_dataloader))
+            res['val_iou'].append(total_val_iou/len(val_dataloader))
+            res['val_loss'].append(total_val_loss/len(val_dataloader))
+        if epoch % 10 == 0 and epoch != 0:
+            print(f'epoch: {epoch}\nres: {res}')
 
-# Specify the file path where you want to save the weights
-file_path = 'mamba_pipeline_py_weights.pth'
+    end_time = time.time()
+    res['time'] = (end_time - start_time)
+    
+    # save model params
+    model_state_dict = model.state_dict()
+    file_path = f'ours_params_{train_iter}.pth'
+    torch.save(model_state_dict,file_path)
 
-# Save the model state_dict to the specified file
-torch.save(model_state_dict, file_path)
+    print(f'result: {res}')
+
+    return res
+
+
+# run and record data
+for run in range(num_runs):
+    # clear gpu usage each run
+    torch.cuda.empty_cache()
+    torch.cuda.reset_max_memory_allocated()
+
+    print(f"Training run {run}")
+    # reinitialize the model
+    model = UMambaBot(
+        input_channels=3,  # Assuming RGB images with 3 channels
+        n_stages=5,
+        features_per_stage=(32, 64, 128, 256,512),
+        conv_op=nn.Conv2d,  # Assuming 2D convolution
+        kernel_sizes=(3, 3, 3, 3, 3),  # Adjusted kernel sizes for 2D convolution
+        strides=(1, 2, 2, 2, 2),
+        num_classes=3,
+        n_conv_per_stage=(1, 1, 1, 1, 1),
+        n_conv_per_stage_decoder=(1, 1, 1, 1),
+        conv_bias=True,
+        norm_op=nn.InstanceNorm2d,  # Assuming 2D instance normalization
+        norm_op_kwargs={},
+        dropout_op=None,
+        nonlin=nn.LeakyReLU,
+        nonlin_kwargs={'inplace': True},
+        # Pyramidal Pooling
+        ppm_pool_sizes=(1,2,3,6)
+    )
+    # move to gpu
+    model = nn.DataParallel(model,device_ids=device_ids).to(device)
+    optimizer = optim.Adam(
+        model.parameters(),
+        lr=learning_rate)
+    criterion = DiceLoss()
+
+    ###
+    # Data loaders
+    train_dataloader = DataLoader(train_data, batch_size = batch_size , shuffle = True)
+    val_dataloader = DataLoader(val_data, batch_size = batch_size , shuffle = True)
+    test_dataloader = DataLoader(test_data, batch_size = batch_size , shuffle = True)
+
+    results = []
+
+    res = train_model(model=model,train_dataloader=train_dataloader,val_dataloader=val_dataloader,train_iter=run)
+
+    results.append(res)
+
+    output_file = "ours_results.json"
+    with open(output_file,"w") as f:
+        json.dump(results,f)
+
+    print("Training results saved to: ",output_file)
