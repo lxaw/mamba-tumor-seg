@@ -1,0 +1,53 @@
+- All trained on 4 T4 GPUs
+
+PP-UMamba (Ours)
+----------------------------------
+Train time: 48m 27.6s
+#Params:    10076356    ~10M
+IOU:        0.8004
+Dice:       0.8867
+
+
+UMamba
+----------------------------------
+Train time: 73m 22.9s
+#Params:    9813700     ~9.8M
+IOU:        0.7908
+Dice:       0.8799
+
+
+UNet
+----------------------------------
+Train time: 32m 13.1s
+#Params:    7765985     ~7.8M
+IOU:        0.8071
+Dice:       0.8929
+
+
+ViT
+----------------------------------
+Train time:
+#Params:
+IOU:        
+Dice:       
+
+
+ResNet18
+----------------------------------
+Train time: 28m 47.2s
+#Params:    13930497    ~13.9M
+IOU:        0.7623
+Dice:       0.8648
+
+
+ResNet50
+----------------------------------
+Train time: 47m 3.9s
+#Params:    42909633    ~42.9M
+IOU:        0.7661
+Dice:       0.8672
+
+
+
+
+
