@@ -28,8 +28,8 @@ class BrainMRIDatasetBuilder:
         return df
 
     def split_df(self, df):
-        train_df, dummy_df = train_test_split(df, train_size=0.8)
-        valid_df, test_df = train_test_split(dummy_df, train_size=0.5)
+        train_df, dummy_df = train_test_split(df, train_size=0.8, random_state=37)
+        valid_df, test_df = train_test_split(dummy_df, train_size=0.5, random_state=37)
         return train_df, valid_df, test_df
 
 
@@ -44,7 +44,7 @@ class BrainMRIDataset(torch.utils.data.Dataset):
 
     def __getitem__(self, idx):
         image = cv2.imread(self.df.iloc[idx, 0]) / 255.0
-        mask = cv2.imread(self.df.iloc[idx, 1]) / 255.0
+        mask = cv2.imread(self.df.iloc[idx, 1], cv2.IMREAD_GRAYSCALE) / 255.0
         mask = np.where(mask >= 0.5, 1., 0.)
         if self.transform:
             image = self.transform(image)
