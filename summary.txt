@@ -48,6 +48,10 @@ IOU:        0.7661
 Dice:       0.8672
 
 
-
-
+Ultra LightM-UNet
+----------------------------------
+Train time: 304m 41.9s
+#Params:    49457       ~0.049M
+IOU:        0.6725
+Dice:       0.7955  
 
