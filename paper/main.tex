@@ -73,36 +73,35 @@ SegViT has demonstrated impressive performance on several benchmark datasets, in
 \section{Results}
 We now compare our model against three other common segmentation models, U-Mamba \cite{}, U-Net \cite{}, and SegViT \cite{}. And it was good.
 
-\centering
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Model & Param Count & Size (MB) & Avg. IOU & Avg. Dice \\
-\hline
-Pyramidal Mamba (Ours) & 10M & 109.15 & 0.8004 & 0.8867 \\
-\hline
-U-Mamba & 9.8M & 108.10 & 0.7908 & 0.8799 \\
-\hline
-U-Net & 7.8M & 31.09 & 0.8071 & 0.8929 \\
-\hline
-SegViT & Y & Z & A & B \\
-\hline
-ResNet18 & 13.9M & 55.76 & 0.7623 & 0.8648 \\
-\hline
-ResNet50 & 42.9M & 171.85 & 0.7661 & 0.8672 \\
-\hline
-Ultra LightM-UNet & 0.049M & 0.20 & 0.6725 & 0.7955 \\
-\hline
-\end{tabular}
+\begin{table}[!h]
+    \renewcommand{\arraystretch}{1.2}
+    \setlength{\tabcolsep}{2pt}
+    \centering
+    \footnotesize
+    \begin{tabular}{|l|c|c|c|c|}
+    \hline
+    Model & Params & Size & IOU & Dice \\
+    \hline
+    Pyramidal Mamba (Ours) & 10M & 109.15 & 0.8004 & 0.8867 \\
+    \hline
+    U-Mamba & 9.8M & 108.10 & 0.7908 & 0.8799 \\
+    \hline
+    U-Net & 7.8M & 31.09 & 0.8071 & 0.8929 \\
+    \hline
+    SegViT & Y & Z & A & B \\
+    \hline
+    ResNet18 & 13.9M & 55.76 & 0.7623 & 0.8648 \\
+    \hline
+    ResNet50 & 42.9M & 171.85 & 0.7661 & 0.8672 \\
+    \hline
+    Ultra LightM-UNet & 0.049M & 0.20 & 0.6725 & 0.7955 \\
+    \hline
+    \end{tabular}
+    \end{table}
 
-\section{Loss Curves}
-We also display the loss curves for each model. Each model was trained for 100 epochs under [OTHER CONDITIONS].
+\section{Acknowledgment}
 
-\section*{Acknowledgment}
-
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
+This work was done as a final project for the University of South Carolina's CSCE763 Digital Image Processing course taught in Spring 2024 under Dr. Yan Tong.
 
 \begin{thebibliography}{00}
 \bibitem{ronneberger2015unet} O. Ronneberger, P. Fischer, and T. Brox, "U-Net: Convolutional Networks for Biomedical Image Segmentation," arXiv:1505.04597 [cs.CV], 2015.
