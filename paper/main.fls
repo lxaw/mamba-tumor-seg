@@ -346,6 +346,16 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT ./imgs/bars.png
+INPUT ./imgs/bars.png
+INPUT imgs/bars.png
+INPUT ./imgs/bars.png
+INPUT ./imgs/bars.png
+INPUT ./imgs/balls.png
+INPUT ./imgs/balls.png
+INPUT imgs/balls.png
+INPUT ./imgs/balls.png
+INPUT ./imgs/balls.png
 INPUT main.aux
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb

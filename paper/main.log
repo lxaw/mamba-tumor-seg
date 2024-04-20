@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.11)  19 APR 2024 06:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.6.11)  20 APR 2024 12:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -282,6 +282,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ] [2]
+Underfull \hbox (badness 2744) in paragraph at lines 78--79
+\OT1/ptm/m/n/10 mil-lion pa-ram-e-ters and a com-pu-ta-tional cost of 0.060
+ []
+
+<imgs/bars.png, id=14, 651.43375pt x 400.49625pt>
+File: imgs/bars.png Graphic file (type png)
+<use imgs/bars.png>
+Package pdftex.def Info: imgs/bars.png  used on input line 92.
+(pdftex.def)             Requested size: 252.0pt x 154.92792pt.
+<imgs/balls.png, id=16, 667.49374pt x 400.49625pt>
+File: imgs/balls.png Graphic file (type png)
+<use imgs/balls.png>
+Package pdftex.def Info: imgs/balls.png  used on input line 98.
+(pdftex.def)             Requested size: 252.0pt x 151.20015pt.
+
+Underfull \hbox (badness 3492) in paragraph at lines 115--116
+[]\OT1/ptm/m/n/10 ULMUNet[]v3 com-bines the mod-i-fi-ca-tions from UL-
+ []
+
+[3 <./imgs/bars.png> <./imgs/balls.png>]
+Underfull \hbox (badness 1389) in paragraph at lines 131--132
+[]\OT1/ptm/m/n/10 Our ex-per-i-ments and com-par-isons with state-of-the-art
+ []
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -293,22 +317,20 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3
-
-] (./main.aux) ) 
+[4] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 4219 strings out of 476025
- 66474 string characters out of 5790017
- 1866388 words of memory out of 5000000
- 24639 multiletter control sequences out of 15000+600000
+ 4240 strings out of 476025
+ 66798 string characters out of 5790017
+ 1867388 words of memory out of 5000000
+ 24656 multiletter control sequences out of 15000+600000
  548234 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,10n,62p,1638b,331s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (3 pages, 75802 bytes).
+Output written on main.pdf (4 pages, 252512 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 48 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

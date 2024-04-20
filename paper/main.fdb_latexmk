@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1713522744 "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" "main.pdf" "main" 1713522745 0
-  "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" 1713522744 15233 68380b4577a229e9385e3f1ee4de51f2 ""
+["pdflatex"] 1713632360 "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" "main.pdf" "main" 1713632361 0
+  "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" 1713632360 22506 0d909c7ba77142c18dc6cd6e48bbf1a0 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -72,8 +72,10 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1686461107 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1686461055 7883456 2671d7d74b408aece8db38e110a3c44d ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "main.aux" 1713522745 1818 7633b9cb532717bae077565aea0f5a5f "pdflatex"
-  "main.tex" 1713522744 15233 68380b4577a229e9385e3f1ee4de51f2 ""
+  "imgs/balls.png" 1713630615 124414 50db63ebc4e7c79d17ce03e6364a5fed ""
+  "imgs/bars.png" 1713630615 130116 b310a1327a4549902ed61e773d41cde1 ""
+  "main.aux" 1713632361 3475 a484d3114d8bc4b38d490cc90fe23a34 "pdflatex"
+  "main.tex" 1713632360 22506 0d909c7ba77142c18dc6cd6e48bbf1a0 ""
   (generated)
   "main.aux"
   "main.log"
