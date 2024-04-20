@@ -99,6 +99,12 @@ We now go into what we did for each of our models.
     \caption{A scatter plot of Dice Score vs model size in MegaBytes. The points are scaled to help represent size.}
     \label{fig:balls}
 \end{figure}
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/masks.png}
+    \caption{Example segmentations.}
+    \label{fig:segs}
+\end{figure}
 
 \subsection{PP-UMamba}
 This model incorporates pyramidal pooling, which is a strategy used in convolutional neural networks (CNNs) to capture context and incorporate multi-scale information \cite{zhao2017pyramid}. Pyramidal pooling involves parallel pooling operations at different scales, followed by concatenation of the resulting feature maps. This approach has been shown to improve the performance of CNNs in various computer vision tasks, including segmentation, by enabling the model to capture both local and global context.

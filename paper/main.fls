@@ -356,6 +356,11 @@ INPUT ./imgs/balls.png
 INPUT imgs/balls.png
 INPUT ./imgs/balls.png
 INPUT ./imgs/balls.png
+INPUT ./imgs/masks.png
+INPUT ./imgs/masks.png
+INPUT imgs/masks.png
+INPUT ./imgs/masks.png
+INPUT ./imgs/masks.png
 INPUT main.aux
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
