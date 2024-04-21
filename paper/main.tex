@@ -7,6 +7,7 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{hyperref}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
@@ -96,24 +97,6 @@ Our goal was to 1) maintain dice scores comparable to state-of-the-art (SOTA) me
 
 We now go into what we did for each of our models.
 
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\columnwidth]{imgs/bars.png}
-    \caption{Each model tested as a bar chart. The upper half is the Dice Scores, and the bottom half is the parameter count, where M means "million".}
-    \label{fig:bars}
-\end{figure}
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\columnwidth]{imgs/balls.png}
-    \caption{A scatter plot of Dice Score vs model size in MegaBytes. The points are scaled to help represent size.}
-    \label{fig:balls}
-\end{figure}
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\columnwidth]{imgs/masks.png}
-    \caption{Example segmentations.}
-    \label{fig:segs}
-\end{figure}
 
 \subsection{PP-UMamba}
 This model incorporates pyramidal pooling, which is a strategy used in convolutional neural networks (CNNs) to capture context and incorporate multi-scale information \cite{zhao2017pyramid}. Pyramidal pooling involves parallel pooling operations at different scales, followed by concatenation of the resulting feature maps. This approach has been shown to improve the performance of CNNs in various computer vision tasks, including segmentation, by enabling the model to capture both local and global context.
@@ -133,11 +116,37 @@ ULMUNet\_v3 combines the modifications from ULMUNet\_v1 and ULMUNet\_v2. It incr
 This model incorporates pyramidal pooling, similar to PP-UMamba, but within the UltraLight VM-UNet architecture. The goal was to leverage the benefits of multi-scale feature extraction while maintaining the parameter efficiency of the UltraLight VM-UNet.
 
 \subsection{UL-PP}
-The UL-PP (Ultra Light Pyramidal Pooling) model trained and performed well with 1.1M parameters. According to the provided information, incorporating pyramidal pooling on the UL network scored slightly worse than without pyramidal pooling but required approximately 400,000 more parameters.
+The UL-PP (Ultra Light Pyramidal Pooling) model trained and performed well with 1.1M parameters. Incorporating pyramidal pooling on the UL network scored slightly worse than without pyramidal pooling but required approximately 400,000 more parameters.
 
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/data_stats.png}
+    \caption{Information about the train, test, and validate data.}
+    \label{fig:datastats}
+\end{figure}
 
 \section{Results}
-We now compare our models against ResNet18, ResNet50, standard U-Mamba with bottleneck, UNet, and UltraLight VM-UNet. The results are shown in Figures 1--2.
+We now compare our models against ResNet18, ResNet50, standard U-Mamba with bottleneck, UNet, and UltraLight VM-UNet. We train for 100 epochs on all models, and use dice-loss with Adam optimizer. We train on roughly 3000 images, and validate on roughly 400. we then test on roughly 400. We show the stats of our data in Figure \ref{fig:datastats}.
+The results are shown in Figures \ref{fig:bars},\ref{fig:balls},\ref{fig:segs}.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/bars.png}
+    \caption{Each model tested as a bar chart. The upper half is the Dice Scores, and the bottom half is the parameter count, where M means "million".}
+    \label{fig:bars}
+\end{figure}
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/balls.png}
+    \caption{A scatter plot of Dice Score vs model size in MegaBytes. The points are scaled to help represent size.}
+    \label{fig:balls}
+\end{figure}
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/masks.png}
+    \caption{Example segmentations.}
+    \label{fig:segs}
+\end{figure}
 
 \section{Conclusion}
 
