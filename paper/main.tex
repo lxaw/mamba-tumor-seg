@@ -53,6 +53,15 @@ Selective State Spaces (SSMs) pose an improvement in computational efficiency ov
 	
 Making use of Structured State Spaces, presented by Gu, Goel, and Ré \cite{gu2022efficiently}, for their superiority in long range dependency tasks, a specific type of SSM, the Mamba architecture, by Gu and Dao \cite{gu2023mamba}, proposed a foundational model to operate on arbitrary sequences from a variety of inputs in the domain of sequence modeling. This model achieves the power of Transformers while scaling linearly in sequencing length to be computationally efficient. Additionally, the selection mechanism of Mamba improves on an SSMs ability to focus on or ignore sections in an input sequence by parameterizing the parameters of an SSM to reflect the current context of the input. The Mamba model and its application to brain tumor MRI imaging segmentation will be evaluated in this project.
 
+\section{Input Data}\label{sec2}
+We shall be using a Brain MRI segmentation dataset found here in \cite{dataset}. This dataset has been used in several papers regarding classification of the shape and severity of tumors, and provides an adequate dataset for research purposes in the field of medical image analysis, particularly in the area of brain MRI segmentation. Researchers have utilized this dataset in various studies focusing on the classification of tumor shapes and the assessment of tumor severity. With its comprehensive collection of brain MRI scans, along with corresponding segmentation masks, the dataset offers valuable resources for developing and evaluating algorithms aimed at automating tumor detection and analysis.
+
+The dataset contains brain MRI images along with their segmentation masks for 110 patients, for a total of almost 4000 total images, of which about 1400 have tumors.
+
+
+\section{Output Data}\label{sec3}
+The output of this model shall be segmentation masks for new, never before seen images. 
+
 \section{Compared Models}
 Prior to an analysis of how the Pyramidal U-Mamba compares, we shall explain what models we chose for comparison and why.
 
@@ -169,5 +178,6 @@ Future work could involve further refinements and optimizations of the Mamba-bas
 \bibitem{ultralightvmunet} R. Wu, Y. Liu, P. Liang, and Q. Chang, “UltraLight VM-UNet: Parallel Vision Mamba Significantly Reduces Parameters for Skin Lesion Segmentation.” Accessed: Apr. 20, 2024. [Online]. Available: https://arxiv.org/pdf/2403.20035.pdf
 \bibitem{zhao2017pyramid}
 H. Zhao, J. Shi, X. Qi, X. Wang and J. Jia, "Pyramid Scene Parsing Network," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 6230-6239, doi: 10.1109/CVPR.2017.660.
+\bibitem{dataset} “Brain MRI segmentation,” www.kaggle.com. https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 \end{thebibliography}
 \end{document}
