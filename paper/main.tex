@@ -54,14 +54,26 @@ Selective State Spaces (SSMs) pose an improvement in computational efficiency ov
 	
 Making use of Structured State Spaces, presented by Gu, Goel, and Ré \cite{gu2022efficiently}, for their superiority in long range dependency tasks, a specific type of SSM, the Mamba architecture, by Gu and Dao \cite{gu2023mamba}, proposed a foundational model to operate on arbitrary sequences from a variety of inputs in the domain of sequence modeling. This model achieves the power of Transformers while scaling linearly in sequencing length to be computationally efficient. Additionally, the selection mechanism of Mamba improves on an SSMs ability to focus on or ignore sections in an input sequence by parameterizing the parameters of an SSM to reflect the current context of the input. The Mamba model and its application to brain tumor MRI imaging segmentation will be evaluated in this project.
 
+\section{Proposed Methodology}
+In this paper, we strive to maintain high accuracy in our image segmentation while also keeping low parameter counts. We primarily seek to use pyramidal pooling modules \cite{zhao2017pyramid} to improve accuracy, and use a variant of the Mamba \cite{gu2023mamba} architecture inspired by \cite{ultralightvmunet} to maintain small parameter sizes.
+
 \section{Input Data}\label{sec2}
 We shall be using a Brain MRI segmentation dataset found here in \cite{dataset}. This dataset has been used in several papers regarding classification of the shape and severity of tumors, and provides an adequate dataset for research purposes in the field of medical image analysis, particularly in the area of brain MRI segmentation. Researchers have utilized this dataset in various studies focusing on the classification of tumor shapes and the assessment of tumor severity. With its comprehensive collection of brain MRI scans, along with corresponding segmentation masks, the dataset offers valuable resources for developing and evaluating algorithms aimed at automating tumor detection and analysis.
 
-The dataset contains brain MRI images along with their segmentation masks for 110 patients, for a total of almost 4000 total images, of which about 1400 have tumors.
+The dataset contains brain MRI images along with their segmentation masks for 110 patients. There were a total of 3143 train images, 393 validation images, and 393 test images. The distribution of the tumor and non-tumor images is shown in Figure \ref{fig:datastats}.
 
 
 \section{Output Data}\label{sec3}
 The output of this model shall be segmentation masks for new, never before seen images. 
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/data_stats.png}
+    \caption{Information about the train, test, and validate data.}
+    \label{fig:datastats}
+\end{figure}
+
+\section{Mamba}
+Before we explain the compared models, we first give a brief overview of Mamba. [to do]
 
 \section{Compared Models}
 Prior to an analysis of how the Pyramidal U-Mamba compares, we shall explain what models we chose for comparison and why.
@@ -71,7 +83,6 @@ For this our analysis, we compare four models against our's. The models are U-Ne
  The core idea behind U-Net is to complement a traditional contracting network with successive layers that replace pooling operations with upsampling operators. These upsampling layers aim to increase the resolution of the output. Subsequent convolutional layers can then learn to assemble a precise output based on this high-resolution information [1]. 
  A key modification in the U-Net architecture is the inclusion of a large number of feature channels in the upsampling part. This allows the network to effectively propagate contextual information to higher resolution layers. As a result, the expansive path of the network becomes more or less symmetric to the contracting part, leading to a distinctive U-shaped architecture. Unlike traditional convolutional networks, U-Net does not employ any fully connected layers and only utilizes the valid part of each convolution [2]. To predict pixels at the border regions of the image, the missing context is extrapolated by mirroring the input image. This tiling strategy is crucial for applying the network to large images, as it circumvents resolution limitations imposed by GPU memory constraints \cite{ronneberger2015unet}. Due to its encoder-decoder architecture, skip connections, multi-scale feature extraction, and its efficiency, U-Net has been used in many denoising and diffusion models. For instance, DDPMs (Denoising Diffusion Probabilistic Models) use an architecture similar to U-Net for denoising and sample generation \cite{DBLP:journals/corr/abs-2006-11239} while the popular Stable Diffusion architecture uses a U-Net based architecture for the diffusion process \cite{rombach2021highresolution}. We have chosen to compare our novel segmentation architecture against the U-Net architecture due to its well-established reputation and widespread adoption in the field of medical image segmentation.
  
-
 \subsection{ResNet}
 We have also selected ResNet18 and ResNet50 as additional benchmarks. These architectures, introduced by He et al. in their seminal work "Deep Residual Learning for Image Recognition" \cite{DBLP:journals/corr/HeZRS15}, have revolutionized the field of deep learning by addressing the problem of vanishing gradients in deep neural networks. The key innovation in ResNets is the introduction of residual connections, which allow the network to learn residual functions with reference to the input layer, thereby facilitating the training of much deeper networks. ResNet18 and ResNet50, with 18 and 50 layers respectively, have been widely adopted in various computer vision tasks, including image classification, object detection, and segmentation. These models have demonstrated exceptional performance and generalization ability across diverse datasets. By comparing our proposed architecture against ResNet18 and ResNet50, we aim to assess its effectiveness in relation to these well-established and highly influential architectures. This comparison will provide valuable insights into the capabilities of our model and its potential to advance the state-of-the-art in image segmentation tasks.
 \subsection{U-Mamba}
@@ -118,12 +129,6 @@ This model incorporates pyramidal pooling, similar to PP-UMamba, but within the 
 \subsection{UL-PP}
 The UL-PP (Ultra Light Pyramidal Pooling) model trained and performed well with 1.1M parameters. Incorporating pyramidal pooling on the UL network scored slightly worse than without pyramidal pooling but required approximately 400,000 more parameters.
 
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\columnwidth]{imgs/data_stats.png}
-    \caption{Information about the train, test, and validate data.}
-    \label{fig:datastats}
-\end{figure}
 
 \section{Results}
 We now compare our models against ResNet18, ResNet50, standard U-Mamba with bottleneck, UNet, and UltraLight VM-UNet. We train for 100 epochs on all models, and use dice-loss with Adam optimizer. We train on roughly 3000 images, and validate on roughly 400. we then test on roughly 400. We show the stats of our data in Figure \ref{fig:datastats}.
