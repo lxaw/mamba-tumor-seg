@@ -4,14 +4,16 @@ PP-UMamba (Ours)
 ----------------------------------
 Train time: 48m 27.6s
 #Params:    10076356    ~10M
+Size(MB):   109.15
 IOU:        0.8004
 Dice:       0.8867
 
 
-UMamba
+UMambaBot
 ----------------------------------
 Train time: 73m 22.9s
 #Params:    9813700     ~9.8M
+Size(MB):   108.10
 IOU:        0.7908
 Dice:       0.8799
 
@@ -20,22 +22,25 @@ UNet
 ----------------------------------
 Train time: 32m 13.1s
 #Params:    7765985     ~7.8M
+Size(MB):   31.09
 IOU:        0.8071
 Dice:       0.8929
 
 
-ViT
+Segformer
 ----------------------------------
-Train time:
-#Params:
-IOU:        
-Dice:       
+Train time: 77m 49.3s
+#Params:    17782913    ~17.8M
+Size(MB):   71.13
+IOU:        0.7260
+Dice:       0.8454
 
 
 ResNet18
 ----------------------------------
 Train time: 28m 47.2s
 #Params:    13930497    ~13.9M
+Size(MB):   55.76
 IOU:        0.7623
 Dice:       0.8648
 
@@ -44,14 +49,86 @@ ResNet50
 ----------------------------------
 Train time: 47m 3.9s
 #Params:    42909633    ~42.9M
+Size(MB):   171.85
 IOU:        0.7661
 Dice:       0.8672
 
 
+
+## Original model, c_list=[8,16,24,32,48,64]
 Ultra LightM-UNet
 ----------------------------------
 Train time: 304m 41.9s
 #Params:    49457       ~0.049M
+Size(MB):   0.20
 IOU:        0.6725
 Dice:       0.7955  
+
+
+## One depth more shallow, changed c_list=[16, 32, 64, 128, 256]
+Ultra LightM-UNet Modified v1                                       
+----------------------------------  # Highest params, highest scores .. higher dims in c_list give more accurate results but more params                                      
+Train time: 310m 14.4s
+#Params:    217165      ~0.20M
+Size(MB):   0.87
+IOU:        0.7359          
+Dice:       0.8409  
+
+
+## doubled mamba parallels in PVM layer, 4 -> 8, c_list=[8,16,24,32,48,64]
+Ultra LightM-UNet Modified v2
+----------------------------------  # Smallest size w/ higher score over original
+Train time: 
+#Params:    42737      ~0.042M
+Size(MB):   0.17
+IOU:        0.7100
+Dice:       0.8243
+
+
+## Combination of v1 and v2, one shallower and 8 parallels in mamba layer, c_list=[16, 32, 64, 128, 256]
+Ultra LightM-UNet Modified v3
+----------------------------------  # More shallow with more parallels gives lower score
+Train time: 
+#Params:    176453      ~0.176M
+Size(MB):   0.71
+IOU:        0.7068
+Dice:       0.8109
+
+
+Ultra LightM-UNet Modified v4   *Trained on 1 NVIDIA GeForce RTX 3060
+----------------------------------  # Pyramidal Pooling on 6 layer UNet, c_list=[16,32,64,128,256,512],
+Train time: 103m 10.5s
+#Params:    1135309      ~1.1M
+Size(MB):   4.54
+IOU:        0.7531
+Dice:       0.8548
+
+
+Ultra LightM-UNet Modified 5   
+----------------------------------  # 6 layer UNet, c_list=[16,32,64,128,256,512], to compare to v4
+Train time: 489m 43.2s
+#Params:    703885      ~0.7M
+Size(MB):   2.82
+IOU:        0.7638
+Dice:       0.8633
+
+
+
+## Description of changes for ULMUNet_v1
+Initially, `c_list=[8, 16, 24, 32, 48, 64]` which determines the size of the output at each step of the encoder and reflects 
+in the decoder by iterating back up the c_list.
+In ULMUNet_v1, we modified `c_list=[16, 32, 64, 128, 256]` as well as making the U-Net one depth more shallow.
+The intention was it improve performance by increasing the amount of parameters in each step of the encoder and decoder.
+(Increased parameter count but reduced UNet depth to keep params# low)
+
+## Description of changes for ULMUNet_v2
+Increased the number of parallels in the PVM (Parallel Vision Mamba) block to 8, previously 4.
+This has a direct effect on the parameter count, decreasing it. Further proving the idea in this paper: https://arxiv.org/pdf/2403.20035.pdf
+
+## Description of changes for ULMUNet_v3
+Modified with a combination of increasing to 8 parallels in the PVM block.
+Modified with increasing the size of the output in each step of the encoder-decoder with `c_list=[16, 32, 64, 128, 256]`
+as well as reducing the depth of the UNet to 5 layers.
+(Combination of v1 and v2)
+
 
