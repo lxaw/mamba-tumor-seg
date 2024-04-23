@@ -1,5 +1,19 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \citation{bakas2019identifying}
@@ -21,8 +35,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Output Data}{2}{section.4}\protected@file@percent }
 \newlabel{sec3}{{IV}{2}{Output Data}{section.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Mamba}{2}{section.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Information about the train, test, and validate data.}}{2}{figure.1}\protected@file@percent }
-\newlabel{fig:datastats}{{1}{2}{Information about the train, test, and validate data}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Distributions of tumor and non-tumor images in the train, validation, and test datasets.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:datastats}{{1}{2}{Distributions of tumor and non-tumor images in the train, validation, and test datasets}{figure.1}{}}
 \citation{ronneberger2015unet}
 \citation{DBLP:journals/corr/HeZRS15}
 \citation{U-Mamba}
@@ -42,11 +56,11 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}ResNet}{3}{subsection.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}U-Mamba}{3}{subsection.6.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}SegViT}{3}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}UltraLight VM-UNet}{3}{subsection.6.5}\protected@file@percent }
 \citation{U-Mamba}
 \citation{ultralightvmunet}
 \citation{zhao2017pyramid}
 \citation{ultralightvmunet}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}UltraLight VM-UNet}{4}{subsection.6.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Our Models}{4}{section.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-A}}PP-UMamba}{4}{subsection.7.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-B}}ULMUNet\_v1}{4}{subsection.7.2}\protected@file@percent }
@@ -54,8 +68,15 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-D}}ULMUNet\_v3}{4}{subsection.7.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-E}}ULMUNet\_v4}{4}{subsection.7.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-F}}UL-PP}{4}{subsection.7.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Results}{4}{section.8}\protected@file@percent }
 \bibcite{ronneberger2015unet}{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \leavevmode {\color  {green}Thoughts on this vs the two bar graph?}Each model tested as a bar chart. The upper half is the Dice Scores, and the bottom half is the parameter count, where M means "million".}}{5}{figure.2}\protected@file@percent }
+\newlabel{fig:bars}{{2}{5}{\gr {Thoughts on this vs the two bar graph?}Each model tested as a bar chart. The upper half is the Dice Scores, and the bottom half is the parameter count, where M means "million"}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size.}}{5}{figure.3}\protected@file@percent }
+\newlabel{fig:balls}{{3}{5}{A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size}{figure.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Results}{5}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{5}{section.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Example segmentations.}}{5}{figure.4}\protected@file@percent }
+\newlabel{fig:segs}{{4}{5}{Example segmentations}{figure.4}{}}
 \bibcite{vaswani2023attention}{2}
 \bibcite{gu2022efficiently}{3}
 \bibcite{gu2023mamba}{4}
@@ -65,16 +86,8 @@
 \bibcite{DBLP:journals/corr/abs-2006-11239}{8}
 \bibcite{DBLP:journals/corr/HeZRS15}{9}
 \bibcite{zhang2022segvit}{10}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Each model tested as a bar chart. The upper half is the Dice Scores, and the bottom half is the parameter count, where M means "million".}}{5}{figure.2}\protected@file@percent }
-\newlabel{fig:bars}{{2}{5}{Each model tested as a bar chart. The upper half is the Dice Scores, and the bottom half is the parameter count, where M means "million"}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size.}}{5}{figure.3}\protected@file@percent }
-\newlabel{fig:balls}{{3}{5}{A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size}{figure.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Example segmentations.}}{5}{figure.4}\protected@file@percent }
-\newlabel{fig:segs}{{4}{5}{Example segmentations}{figure.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{5}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{5}{section*.1}\protected@file@percent }
 \bibcite{dosovitskiy2021image}{11}
 \bibcite{ultralightvmunet}{12}
 \bibcite{zhao2017pyramid}{13}
 \bibcite{dataset}{14}
-\gdef \@abspage@last{6}
+\@writefile{toc}{\contentsline {section}{References}{6}{section*.1}\protected@file@percent }
