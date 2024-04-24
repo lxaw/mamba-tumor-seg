@@ -1,21 +1,24 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Proposed Methodology}{}% 2
-\BOOKMARK [1][-]{section.3}{Input Data}{}% 3
-\BOOKMARK [1][-]{section.4}{Output Data}{}% 4
-\BOOKMARK [1][-]{section.5}{Mamba}{}% 5
-\BOOKMARK [1][-]{section.6}{Compared Models}{}% 6
-\BOOKMARK [2][-]{subsection.6.1}{U-Net}{section.6}% 7
-\BOOKMARK [2][-]{subsection.6.2}{ResNet}{section.6}% 8
-\BOOKMARK [2][-]{subsection.6.3}{U-Mamba}{section.6}% 9
-\BOOKMARK [2][-]{subsection.6.4}{SegViT}{section.6}% 10
-\BOOKMARK [2][-]{subsection.6.5}{UltraLight VM-UNet}{section.6}% 11
-\BOOKMARK [1][-]{section.7}{Our Models}{}% 12
-\BOOKMARK [2][-]{subsection.7.1}{PP-UMamba}{section.7}% 13
-\BOOKMARK [2][-]{subsection.7.2}{ULMUNet\137v1}{section.7}% 14
-\BOOKMARK [2][-]{subsection.7.3}{ULMUNet\137v2}{section.7}% 15
-\BOOKMARK [2][-]{subsection.7.4}{ULMUNet\137v3}{section.7}% 16
-\BOOKMARK [2][-]{subsection.7.5}{ULMUNet\137v4}{section.7}% 17
-\BOOKMARK [2][-]{subsection.7.6}{UL-PP}{section.7}% 18
-\BOOKMARK [1][-]{section.8}{Results}{}% 19
-\BOOKMARK [1][-]{section.9}{Conclusion}{}% 20
-\BOOKMARK [1][-]{section*.1}{References}{}% 21
+\BOOKMARK [1][-]{section.1}{\376\377\000I\000n\000t\000r\000o\000d\000u\000c\000t\000i\000o\000n}{}% 1
+\BOOKMARK [1][-]{section.2}{\376\377\000P\000r\000o\000p\000o\000s\000e\000d\000\040\000M\000e\000t\000h\000o\000d\000o\000l\000o\000g\000y}{}% 2
+\BOOKMARK [1][-]{section.3}{\376\377\000I\000n\000p\000u\000t\000\040\000D\000a\000t\000a}{}% 3
+\BOOKMARK [1][-]{section.4}{\376\377\000O\000u\000t\000p\000u\000t\000\040\000D\000a\000t\000a}{}% 4
+\BOOKMARK [1][-]{section.5}{\376\377\000M\000a\000m\000b\000a}{}% 5
+\BOOKMARK [1][-]{section.6}{\376\377\000C\000o\000m\000p\000a\000r\000e\000d\000\040\000M\000o\000d\000e\000l\000s}{}% 6
+\BOOKMARK [2][-]{subsection.6.1}{\376\377\000U\000-\000N\000e\000t}{section.6}% 7
+\BOOKMARK [2][-]{subsection.6.2}{\376\377\000R\000e\000s\000N\000e\000t}{section.6}% 8
+\BOOKMARK [2][-]{subsection.6.3}{\376\377\000U\000-\000M\000a\000m\000b\000a}{section.6}% 9
+\BOOKMARK [2][-]{subsection.6.4}{\376\377\000S\000e\000g\000F\000o\000r\000m\000e\000r}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.5}{\376\377\000U\000l\000t\000r\000a\000L\000i\000g\000h\000t\000\040\000V\000M\000-\000U\000N\000e\000t}{section.6}% 11
+\BOOKMARK [1][-]{section.7}{\376\377\000O\000u\000r\000\040\000M\000o\000d\000e\000l\000s}{}% 12
+\BOOKMARK [2][-]{subsection.7.1}{\376\377\000U\000M\000a\000m\000b\000a\000B\000o\000t\000\137\000P\000P\000B\000o\000t}{section.7}% 13
+\BOOKMARK [2][-]{subsection.7.2}{\376\377\000U\000L\000-\000V\000M\000-\000U\000N\000e\000t\000\137\000v\0001}{section.7}% 14
+\BOOKMARK [2][-]{subsection.7.3}{\376\377\000U\000L\000-\000V\000M\000-\000U\000N\000e\000t\000\137\000v\0002}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.4}{\376\377\000U\000L\000-\000V\000M\000-\000U\000N\000e\000t\000\137\000v\0003}{section.7}% 16
+\BOOKMARK [2][-]{subsection.7.5}{\376\377\000U\000L\000-\000V\000M\000-\000U\000N\000e\000t\000\137\000v\0004}{section.7}% 17
+\BOOKMARK [2][-]{subsection.7.6}{\376\377\000U\000L\000-\000V\000M\000-\000U\000N\000e\000t\000\137\000v\0005}{section.7}% 18
+\BOOKMARK [1][-]{section.8}{\376\377\000R\000e\000s\000u\000l\000t\000s}{}% 19
+\BOOKMARK [1][-]{section.9}{\376\377\000C\000o\000n\000c\000l\000u\000s\000i\000o\000n}{}% 20
+\BOOKMARK [1][-]{section*.1}{\376\377\000A\000p\000p\000e\000n\000d\000i\000x}{}% 21
+\BOOKMARK [2][-]{subsection.Appendix.A.1}{\376\377\000T\000r\000a\000i\000n\000i\000n\000g\000\040\000P\000i\000p\000e\000l\000i\000n\000e}{section*.1}% 22
+\BOOKMARK [2][-]{subsection.Appendix.A.2}{\376\377\000S\000u\000p\000p\000l\000e\000m\000e\000n\000t\000a\000r\000y\000\040\000F\000i\000g\000u\000r\000e\000s}{section*.1}% 23
+\BOOKMARK [1][-]{section*.2}{\376\377\000R\000e\000f\000e\000r\000e\000n\000c\000e\000s}{}% 24
