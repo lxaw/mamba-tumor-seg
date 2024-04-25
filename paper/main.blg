@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ieeetr.bst
+Database file #1: refs.bib
+Warning--I didn't find a database entry for "rombach2021highresolution"
+You've used 13 entries,
+            1876 wiz_defined-function locations,
+            528 strings with 13250 characters,
+and the built_in function-call counts, 7978 in all, are:
+= -- 169
+> -- 1468
+< -- 0
++ -- 494
+- -- 481
+* -- 1018
+:= -- 1661
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 13
+chr.to.int$ -- 0
+cite$ -- 13
+duplicate$ -- 71
+empty$ -- 257
+format.name$ -- 481
+if$ -- 1427
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 1
+newline$ -- 42
+num.names$ -- 13
+pop$ -- 91
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 66
+stack$ -- 0
+substring$ -- 36
+swap$ -- 11
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 15
+width$ -- 15
+write$ -- 95
+(There was 1 warning)

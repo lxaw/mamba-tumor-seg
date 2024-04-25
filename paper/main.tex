@@ -8,6 +8,14 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{hyperref}
+\usepackage{array}
+\usepackage{caption} % for \captionsetup command
+\usepackage{svg}
+
+
+
+
+
 
 \newcommand{\gr}[1]{\textcolor{green}{#1}}
 
@@ -58,7 +66,7 @@ Selective State Spaces (SSMs) pose an improvement in computational efficiency ov
 Making use of Structured State Spaces, presented by Gu, Goel, and Ré \cite{gu2022efficiently}, for their superiority in long range dependency tasks, a specific type of SSM, the Mamba architecture, by Gu and Dao \cite{gu2023mamba}, proposed a foundational model to operate on arbitrary sequences from a variety of inputs in the domain of sequence modeling. This model achieves the power of Transformers while scaling linearly in sequencing length to be computationally efficient. Additionally, the selection mechanism of Mamba improves on an SSMs ability to focus on or ignore sections in an input sequence by parameterizing the parameters of an SSM to reflect the current context of the input. The Mamba model and its application to brain tumor MRI imaging segmentation will be evaluated in this project.
 
 \section{Proposed Methodology}
-In this paper, we strive to maintain high accuracy in our image segmentation while also keeping low parameter counts. We primarily seek to use pyramidal pooling modules \cite{zhao2017pyramid} to improve accuracy, and use a variant of the Mamba \cite{gu2023mamba} architecture inspired by \cite{ultralightvmunet} to maintain small parameter sizes.
+In this paper, we strive to maintain high accuracy in our image segmentation while also keeping low parameter counts. We primarily seek to use pyramidal pooling modules \cite{zhao2017pyramid} to improve accuracy, and use a variant of the Mamba \cite{gu2023mamba} architecture inspired by \cite{wu2024ultralight} to maintain small parameter sizes.
 
 \section{Input Data}\label{sec2}
 We shall be using a Brain MRI segmentation dataset found in \cite{dataset}. This dataset has been used in several papers regarding classification of the shape and severity of tumors, and provides an adequate dataset for research purposes in the field of medical image analysis, particularly in the area of brain MRI segmentation. Researchers have utilized this dataset in various studies focusing on the classification of tumor shapes and the assessment of tumor severity. With its comprehensive collection of brain MRI scans, along with corresponding segmentation masks, the dataset offers valuable resources for developing and evaluating algorithms aimed at automating tumor detection and analysis.
@@ -97,20 +105,20 @@ These blocks are stacked to form the Mamba architecture. Compared to Transformer
 \section{Compared Models}
 Prior to an analysis of how the Pyramidal U-Mamba compares, we shall explain what models we chose for comparison and why.
 
-For this our analysis, we compare four models against our own developed ones. The models are U-Net\cite{ronneberger2015unet}, ResNet18 \cite{DBLP:journals/corr/HeZRS15}, ResNet50, U-Mamba\cite{U-Mamba}, and SegViT\cite{dosovitskiy2021image}. Below we explain our choices.
+For this our analysis, we compare four models against our own developed ones. The models are U-Net\cite{ronneberger2015unet}, ResNet18 \cite{he2015deep}, ResNet50, U-Mamba\cite{ma2024umamba}, and SegViT\cite{dosovitskiy2021image}. Below we explain our choices.
 \subsection{U-Net}
 The core idea behind U-Net is to complement a traditional contracting network with successive layers that replace pooling operations with upsampling operators. These upsampling layers aim to increase the resolution of the output. Subsequent convolutional layers can then learn to assemble a precise output based on this high-resolution information \cite{ronneberger2015unet}.
-A key modification in the U-Net architecture is the inclusion of a large number of feature channels in the upsampling part. This allows the network to effectively propagate contextual information to higher resolution layers. As a result, the expansive path of the network becomes more or less symmetric to the contracting part, leading to a distinctive U-shaped architecture. To predict pixels at the border regions of the image, the missing context is extrapolated by mirroring the input image. This tiling strategy is crucial for applying the network to large images, as it circumvents resolution limitations imposed by GPU memory constraints \cite{ronneberger2015unet}. Due to its encoder-decoder architecture, skip connections, multi-scale feature extraction, and its efficiency, U-Net has been used in many denoising and diffusion models. For instance, DDPMs (Denoising Diffusion Probabilistic Models) use an architecture similar to U-Net for denoising and sample generation \cite{DBLP:journals/corr/abs-2006-11239} while the popular Stable Diffusion architecture uses a U-Net based architecture for the diffusion process \cite{rombach2021highresolution}. We have chosen to compare our novel segmentation architecture against the U-Net architecture due to its well-established reputation and widespread adoption in the field of medical image segmentation.
+A key modification in the U-Net architecture is the inclusion of a large number of feature channels in the upsampling part. This allows the network to effectively propagate contextual information to higher resolution layers. As a result, the expansive path of the network becomes more or less symmetric to the contracting part, leading to a distinctive U-shaped architecture. To predict pixels at the border regions of the image, the missing context is extrapolated by mirroring the input image. This tiling strategy is crucial for applying the network to large images, as it circumvents resolution limitations imposed by GPU memory constraints \cite{ronneberger2015unet}. Due to its encoder-decoder architecture, skip connections, multi-scale feature extraction, and its efficiency, U-Net has been used in many denoising and diffusion models. For instance, DDPMs (Denoising Diffusion Probabilistic Models) use an architecture similar to U-Net for denoising and sample generation \cite{ho2020denoising} while the popular Stable Diffusion architecture uses a U-Net based architecture for the diffusion process \cite{rombach2021highresolution}. We have chosen to compare our novel segmentation architecture against the U-Net architecture due to its well-established reputation and widespread adoption in the field of medical image segmentation.
 
 \subsection{ResNet}
-We have also selected ResNet18 and ResNet50 as additional benchmarks. These architectures, introduced by He et al. in their seminal work "Deep Residual Learning for Image Recognition" \cite{DBLP:journals/corr/HeZRS15}, have revolutionized the field of deep learning by addressing the problem of vanishing gradients in deep neural networks. The key innovation in ResNets is the introduction of residual connections, which allow the network to learn residual functions with reference to the input layer, thereby facilitating the training of much deeper networks. ResNet18 and ResNet50, with 18 and 50 layers respectively, have been widely adopted in various computer vision tasks, including image classification, object detection, and segmentation. These models have demonstrated exceptional performance and generalization ability across diverse datasets. By comparing our proposed architecture against ResNet18 and ResNet50, we aim to assess its effectiveness in relation to these well-established and highly influential architectures. This comparison will provide valuable insights into the capabilities of our model and its potential to advance the state-of-the-art in image segmentation tasks.
+We have also selected ResNet18 and ResNet50 as additional benchmarks. These architectures, introduced by He et al. in their seminal work "Deep Residual Learning for Image Recognition" \cite{he2015deep}, have revolutionized the field of deep learning by addressing the problem of vanishing gradients in deep neural networks. The key innovation in ResNets is the introduction of residual connections, which allow the network to learn residual functions with reference to the input layer, thereby facilitating the training of much deeper networks. ResNet18 and ResNet50, with 18 and 50 layers respectively, have been widely adopted in various computer vision tasks, including image classification, object detection, and segmentation. These models have demonstrated exceptional performance and generalization ability across diverse datasets. By comparing our proposed architecture against ResNet18 and ResNet50, we aim to assess its effectiveness in relation to these well-established and highly influential architectures. This comparison will provide valuable insights into the capabilities of our model and its potential to advance the state-of-the-art in image segmentation tasks.
 \subsection{U-Mamba}
-As our model takes much inspiration from the recently developed U-Mamba design \cite{U-Mamba}, we also choose to incorporate it in our comparison. U-Mamba addresses these limitations by introducing a novel hybrid CNN-SSM block that leverages the strengths of both architectures. The convolutional layers in the block are responsible for local feature extraction, while the State Space Sequence Models (SSMs) \cite{gu2022efficiently}, a new family of deep sequence models, are known for their strong capability in handling long sequences and capturing long-range dependencies. By integrating these two components, U-Mamba achieves a balance between local and global information processing, enabling it to effectively handle long-range dependencies in biomedical image segmentation tasks. Moreover, U-Mamba incorporates a self-configuring mechanism that allows it to automatically adapt to various datasets without manual intervention, enhancing its versatility and usability.
+As our model takes much inspiration from the recently developed U-Mamba design \cite{ma2024umamba}, we also choose to incorporate it in our comparison. U-Mamba addresses these limitations by introducing a novel hybrid CNN-SSM block that leverages the strengths of both architectures. The convolutional layers in the block are responsible for local feature extraction, while the State Space Sequence Models (SSMs) \cite{gu2022efficiently}, a new family of deep sequence models, are known for their strong capability in handling long sequences and capturing long-range dependencies. By integrating these two components, U-Mamba achieves a balance between local and global information processing, enabling it to effectively handle long-range dependencies in biomedical image segmentation tasks. Moreover, U-Mamba incorporates a self-configuring mechanism that allows it to automatically adapt to various datasets without manual intervention, enhancing its versatility and usability.
 \subsection{SegFormer}
 SegFormer \cite{xie2021segformer} is a transformer-based semantic segmentation model that employs a hierarchical structure and a novel attention mechanism called Efficient Self-Attention (ESA). The SegFormer architecture consists of a transformer encoder for capturing long-range dependencies and a lightweight All-MLP decoder for generating high-resolution segmentation masks. The ESA module reduces the computational complexity of self-attention by performing attention operations in a local window and aggregating global information through a depth-wise convolution. This allows SegFormer to efficiently process high-resolution images while capturing both local and global context. Moreover, SegFormer introduces a position-sensitive embedding scheme that encodes both spatial and channel-wise information, enhancing the model's ability to capture fine-grained details. By comparing U-Mamba against SegFormer, we aim to evaluate the effectiveness of our hybrid CNN-SSM approach in relation to the transformer-based segmentation mechanism employed by SegFormer. This comparison will provide insights into the strengths and weaknesses of both architectures and their ability to handle complex biomedical image segmentation tasks. Furthermore, it will help us understand the potential of transformer-based approaches and hybrid approaches in advancing the state-of-the-art in biomedical image segmentation.
 
 \subsection{UltraLight VM-UNet}
-The UltraLight VM-UNet \cite{ultralightvmunet} is a lightweight neural network architecture designed for skin lesion segmentation tasks. It is built upon the Vision Mamba module, which is a state-space model (SSM) that can efficiently handle long-range dependencies in sequences, making it well-suited for image segmentation tasks.
+The UltraLight VM-UNet \cite{wu2024ultralight} is a lightweight neural network architecture designed for skin lesion segmentation tasks. It is built upon the Vision Mamba module, which is a state-space model (SSM) that can efficiently handle long-range dependencies in sequences, making it well-suited for image segmentation tasks.
 
 The key innovation of the UltraLight VM-UNet is the proposed Parallel Vision Mamba Layer (PVM Layer), which processes deep features in parallel using multiple Vision Mamba blocks. Specifically, the input feature map is split into multiple sub-feature maps, each processed by a separate Vision Mamba block with a reduced channel count. This parallel processing approach allows the UltraLight VM-UNet to maintain high segmentation performance while significantly reducing the number of parameters and computational complexity.
 
@@ -120,97 +128,112 @@ The success of the UltraLight VM-UNet can be attributed to the authors' in-depth
 
 \section{Our Models}
 
-Inspired by \cite{U-Mamba} and \cite{ultralightvmunet}, we sought to implement both models on a different problem: tumor segmentation.
+Inspired by \cite{ma2024umamba} and \cite{wu2024ultralight}, we sought to implement both models on a different problem: tumor segmentation.
 
 Our goal was to 1) maintain dice scores comparable to state-of-the-art (SOTA) methods such as those listed above, while 2) being smaller than those above.
 
 We now go into what we did for each of our models.
 
 
-\subsection{UMambaBot\_PPBot}
+\subsection{UMambaBot-PP}
 
 This model incorporates pyramidal pooling, which is a strategy used in convolutional neural networks (CNNs) to capture context and incorporate multi-scale information \cite{zhao2017pyramid}. Pyramidal pooling involves parallel pooling operations at different scales, followed by concatenation of the resulting feature maps. This approach has been shown to improve the performance of CNNs in various computer vision tasks, including segmentation, by enabling the model to capture both local and global context.
 
-In our UMambaBot\_PP model, we integrated pyramidal pooling into the U-Mamba architecture, aiming to leverage the strengths of both the Mamba module and multi-scale feature extraction.
+In our UMambaBot-PP model, we integrated pyramidal pooling into the U-Mamba architecture, aiming to leverage the strengths of both the Mamba module and multi-scale feature extraction.
 
 % Unsure why this comment line is giving me troubles !!
 
-\subsection{UL-VM-UNet\_v1}
-For ULMUNet\_v1, the initial channel list was modified from [8, 16, 24, 32, 48, 64] to [16, 32, 64, 128, 256], increasing the number of channels at each step of the encoder and decoder. Additionally, the depth of the U-Net was reduced by one layer to keep the parameter count low while increasing the number of parameters in each step. The intention was to improve performance by increasing the capacity of the model while maintaining a reasonable parameter count.
+\subsection{UL-VM-UNet-v1}
+For UL-VM-UNet-v1, the initial channel list was modified from [8, 16, 24, 32, 48, 64] to [16, 32, 64, 128, 256], increasing the number of channels at each step of the encoder and decoder. Additionally, the depth of the U-Net was reduced by one layer to keep the parameter count low while increasing the number of parameters in each step. The intention was to improve performance by increasing the capacity of the model while maintaining a reasonable parameter count.
 
-\subsection{UL-VM-UNet\_v2}
-In ULMUNet\_v2, the number of parallel branches in the Parallel Vision Mamba (PVM) block was increased from 4 to 8. This modification directly decreases the parameter count, further proving the idea proposed in the UltraLight VM-UNet paper \cite{ultralightvmunet} that processing features in parallel with reduced channel counts can significantly reduce parameters while maintaining performance.
+\subsection{UL-VM-UNet-v2}
+In UL-VM-UNet-v2, the number of parallel branches in the Parallel Vision Mamba (PVM) block was increased from 4 to 8. This modification directly decreases the parameter count, further proving the idea proposed in the UltraLight VM-UNet paper \cite{wu2024ultralight} that processing features in parallel with reduced channel counts can significantly reduce parameters while maintaining performance.
 
-\subsection{UL-VM-UNet\_v3}
-ULMUNet\_v3 combines the modifications from ULMUNet\_v1 and ULMUNet\_v2. It increases the number of parallel branches in the PVM block to 8 and modifies the channel list to [16, 32, 64, 128, 256]. Additionally, the depth of the U-Net was reduced to 5 layers. This approach aims to balance the trade-off between model capacity and parameter efficiency.
+\subsection{UL-VM-UNet-v3}
+UL-VM-UNet-v3 combines the modifications from UL-VM-UNet-v1 and UL-VM-UNet-v2. It increases the number of parallel branches in the PVM block to 8 and modifies the channel list to [16, 32, 64, 128, 256]. Additionally, the depth of the U-Net was reduced to 5 layers. This approach aims to balance the trade-off between model capacity and parameter efficiency.
 
-\subsection{UL-VM-UNet\_v4}
-\gr{Pyramidal pooling was used in each of the PVM blocks in the encoder and decoder networks. If we want to do similar to UMambaBot\_PP we can do it just in the bottleneck. Let me know if we want this can I can do it fast.}
-This model incorporates pyramidal pooling, similar to UMambaBot\_PP, but within the UltraLight VM-UNet architecture. The goal was to leverage the benefits of multi-scale feature extraction while maintaining the parameter efficiency of the UltraLight VM-UNet.
+\subsection{UL-VM-UNet-v4}
+This model incorporates pyramidal pooling, similar to UMambaBot-PP, but within every PVM block in both the encoder and decoder in the UltraLight VM-UNet architecture. The goal was to leverage the benefits of multi-scale feature extraction while maintaining the parameter efficiency of the UltraLight VM-UNet.
 
-\subsection{UL-VM-UNet\_v5}
-\gr{What is UL-PP? v5 is v4 with no PP. If any, v4 is UL-PP.}
-The UL-PP (Ultra Light Pyramidal Pooling) model trained and performed well with 1.1M parameters. Incorporating pyramidal pooling on the UL network scored slightly worse than without pyramidal pooling but required approximately 400,000 more parameters.
+\subsection{UL-VM-UNet-v5}
+UL-VM-UNet-v5 is meant to be a comparison to the -v4 and -v6 UltraLight variations. This model trained and performed well with 1.1M parameters. Incorporating pyramidal pooling on the UL network scored slightly worse than without pyramidal pooling but required approximately 400,000 more parameters. 
+
+\subsection{UL-VM-UNet-v6}
+Another variation to further test the effects of incorporating pyramidal pooling in the UltraLight VM-UNet architecture was made by only using pyramidal pooling in the bottleneck layer, similarly done in UMambaBot-PP. The main goal here, again, was to integrate pyramidal pooling for the benefit of multi-scale feature extraction while keeping a low parameter count.
 
 
 \section{Results}
-We now compare our models against ResNet18, ResNet50, standard U-Mamba bottleneck, UNet, and UltraLight VM-UNet. We train for 100 epochs on all models, and use dice-loss with Adam optimizer. We train on roughly 3000 images, and validate on roughly 400. we then test on roughly 400. We show the stats of our data in Figure \ref{fig:datastats}.
-The results are shown in Figures \ref{fig:bars},\ref{fig:balls},\ref{fig:segs}.
+We now compare our models against ResNet18, ResNet50, standard U-Mamba bottleneck, UNet, and UltraLight VM-UNet. We train for 100 epochs on all models, and use dice-loss with Adam optimizer. We train on roughly 3000 images, and validate on roughly 400. we then test on roughly 400. We show the distributions of our data in Figure \ref{fig:datastats}.
+Model results are shown in Table \ref{tab:model_comparison} and Figures \ref{fig:balls},\ref{fig:segs}, with additional segmentation results in Appendix \ref{supp_figs}.
 
+
+% Adjust the vertical spacing between rows
+\renewcommand{\arraystretch}{1.25}
 \begin{table}[ht]
     \centering
+    \captionsetup{skip=6pt}
     \begin{tabular}{|l|c|c|}
         \hline
-        \textbf{Model Name} & \textbf{Parameter Count (Millions)} & \textbf{Dice Score} \\
+        \textbf{Model Name} & \textbf{\#Params (M) $\downarrow$} & \textbf{Dice Score $\uparrow$} \\
         \hline
-        UMambaBot\_PP & 10.0 & 0.8867 \\
-        UMambaBot & 9.8 & 0.8799 \\
+        UMambaBot-PP(Ours) & 10.0 & 0.8867 \\
+        UMambaBot & \textbf{9.8} & 0.8799 \\
         ResNet18 & 13.9 & 0.8648 \\
         ResNet50 & 42.9 & 0.8672 \\
         SegFormer & 17.8 & 0.8454 \\
-        UNet & 7.8 & 0.8929 \\
+        UNet & 7.8 & \textbf{0.8929} \\
+        \hline\hline
         UL-VM-UNet & 0.049 & 0.79955 \\
-        UL-VM-UNet\_v1 & 0.20 & 0.8409 \\
-        UL-VM-UNet\_v2 & 0.042 & 0.8243 \\
-        UL-VM-UNet\_v3 & 0.176 & 0.8109 \\
-        UL-VM-UNet\_v4 & 1.1 & 0.8548 \\
-        UL-VM-UNet\_v5 & 0.7 & 0.8633 \\
+        UL-VM-UNet-v1(Ours) & 0.20 & 0.8409 \\
+        UL-VM-UNet-v2(Ours) & \textbf{0.042} & 0.8243 \\
+        UL-VM-UNet-v3(Ours) & 0.176 & 0.8109 \\
+        UL-VM-UNet-v4(Ours) & 1.1 & 0.8548 \\
+        UL-VM-UNet-v5(Ours) & 0.7 & \textbf{0.8633} \\
+        UL-VM-UNet-v6(Ours) & 0.77 & 0.8628 \\
         \hline
     \end{tabular}
     \caption{Comparison of different segmentation models.}
     \label{tab:model_comparison}
 \end{table}
 
-\begin{figure}[!t]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=\columnwidth]{imgs/balls.png}
     \caption{A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size.}
     \label{fig:balls}
 \end{figure}
-\gr{do we need a table of the params and scores? May be helpful.. Maybe stick one in the appendix. }
 
-\begin{figure}[!t]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=\columnwidth]{imgs/masks.png}
-    \caption{Example segmentations.}
+    \includegraphics[width=\columnwidth]{imgs/tumor_seg_ex.png}
+    \caption{Sample of segmentation results from each model and their dice score for the segmentation. (Additional samples in Appendix \ref{supp_figs})}
     \label{fig:segs}
 \end{figure}
 
-\gr{Would appendix really need to be in the page limit? Appendix is to include figures that wouldn't fit in paper?}
+The integrated pyramidal pooling module to UMambaBot resulted in a slight increase in performance over the base model. However, UMambaBot-PP had an increase in parameter count by approximately 200,000 parameters. Additionally, our UL-VM-UNet-v2 achieved the lowest parameter count of 0.042 M with an increase over the original UltraLight VM-UNet architecture. Integrating a pyramidal pooling module to the UltraLight model, as done in UL-VM-UNet-v4 and -v6, resulted in an increase in parameter count with no change or a decrease in performance. 
+
 
 \section{Conclusion}
 
 In this work, we explored the application of Structured State Space Sequence Models (SSMs), particularly the Mamba architecture, for tumor segmentation from brain MRI scans. The Mamba architecture leverages selective state spaces, enabling efficient and effective segmentation while maintaining linear scalability.
 
-Our experiments and comparisons with state-of-the-art (SOTA) models demonstrate the potential of the Mamba-based approach in both model size and segmentation accuracy. The smallest model, ULVM\_Net\_v2, achieved a compelling dice score of 0.8243 with only 0.042M parameters, achieving comparable performance to the larger ResNet50 model (42.9M params) with a dice score of 0.8672, while also outperforming the original UltraLight VM-UNet in terms of both parameter count and dice score.
+Our experiments and comparisons with state-of-the-art (SOTA) models demonstrate the potential of the Mamba-based approach in both model size and segmentation accuracy. The smallest model, ULVM-Net-v2, achieved a compelling dice score of 0.8243 with only 0.042M parameters, achieving comparable performance to the larger ResNet50 model (42.9M params) with a dice score of 0.8672, while also outperforming the original UltraLight VM-UNet in terms of both parameter count and dice score.
 
-While the traditional U-Net model achieved the highest dice score of 0.8929, our UMambaBot\_PP model closely followed with a dice score of 0.8867 \gr{note the raise of 300k params in pp?}. Notably, our Mamba-based UMambaBot\_PPBot and UMambaBot models outperformed the Segformer transformer model, indicating the potential of Mamba-based approaches to surpass transformer-based models for this task.
+While the traditional U-Net model achieved the highest dice score of 0.8929, our UMambaBot-PP model closely followed with a dice score of 0.8867. Notably, our Mamba-based UMambaBot-PP and UMambaBot models outperformed the Segformer transformer model, indicating the potential of Mamba-based approaches to surpass transformer-based models for this task.
 
-We were able to make the ultra-light model smaller and more accurate on our task, further proving the potential of Mamba-based systems that prioritize compactness and efficiency. The selective state spaces and parallel processing strategies employed in our models enabled us to strike a balance between model size and segmentation accuracy.
+We were able to make the UltraLight model smaller and more accurate on our task, further proving the potential of Mamba-based systems that prioritize compactness and efficiency. The selective state spaces and parallel processing strategies employed in our models enabled us to strike a balance between model size and segmentation accuracy.
 
 Overall, this work contributes to the exploration of Structured State Space Sequence Models for medical image segmentation tasks. The Mamba architecture's ability to capture long-range dependencies while maintaining linear scalability positions it as a promising alternative to traditional convolutional and transformer-based approaches, especially in resource-constrained environments.
 
 Future work could involve further refinements and optimizations of the Mamba-based models, as well as their application to other medical imaging modalities and segmentation tasks. Additionally, investigating the interpretability and robustness of these models could provide valuable insights for their deployment in real-world clinical settings.
+
+
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+
+
 \appendix
 % Redefine the section numbering for the appendix (optional)
 \renewcommand{\thesection}{\Alph{section}}
@@ -222,42 +245,56 @@ The training pipeline for our model consists of the following steps:
 
 2. Model architecture: We employ a convolutional neural network (CNN) with the following layers: [Describe the layers and their configurations].
 
-3. Training: The model is trained using the training set for [X] epochs with a batch size of [Y]. We use the [Z] optimizer with a learning rate of [L].
+3. Training: The model is trained using the training set for 100 epochs with a batch size of 32. We use the Adam optimizer with a learning rate of 0.0003.
 
-4. Evaluation: The trained model is evaluated on the validation set to monitor its performance and prevent overfitting. We use metrics such as accuracy, precision, recall, and F1-score.
+4. Evaluation: The trained model is evaluated on the validation set to monitor its performance and prevent overfitting. We use the dice loss metric.
 
 5. Testing: Once the model achieves satisfactory performance on the validation set, it is tested on the held-out test set to assess its generalization ability.
 
 % Second appendix section
-\subsection{Supplementary Figures}
+\subsection{Supplementary Figures} \label{supp_figs}
+
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/14_9.png}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/22_4.png}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/13_4.png}
+    \caption{In some cases, such as this one, it was observed that models with too few parameters (UltraLight-VM-UNet, UltraLight-VM-UNet-v2) don't detect sections of the tumor during segmentation.}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/19_4.png}
+    \caption{UltraLight-VM-UNet-v5 achieved segmentation results equivalent to UMambaBot with approximately 9.1 M less parameters.}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/0_0.png}
+    \caption{An example of models with pyramidal pooling in the PVM blocks (UltraLight-VM-UNet-v4, UltraLight-VM-UNet-v6) achieved an improvement over a model without (UltraLight-VM-UNet-v5).}
+\end{figure*}
+
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/12_2.png}
+\end{figure*}
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/22_3.png}
+\end{figure*}
+\begin{figure*}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{imgs/22_7.png}
+\end{figure*}
 
 
-\begin{thebibliography}{00}
-    \bibitem{ronneberger2015unet} O. Ronneberger, P. Fischer, and T. Brox, "U-Net: Convolutional Networks for Biomedical Image Segmentation," arXiv:1505.04597 [cs.CV], 2015.
 
-    \bibitem{vaswani2023attention} A. Vaswani et al., "Attention Is All You Need," arXiv:1706.03762 [cs.CL], 2023.
-
-    \bibitem{gu2022efficiently} A. Gu, K. Goel, and C. Ré, "Efficiently Modeling Long Sequences with Structured State Spaces," arXiv:2111.00396 [cs.LG], 2022.
-
-    \bibitem{gu2023mamba} A. Gu and T. Dao, "Mamba: Linear-Time Sequence Modeling with Selective State Spaces," arXiv:2312.00752 [cs.LG], 2023.
-
-    \bibitem{bakas2019identifying} S. Bakas et al., "Identifying the Best Machine Learning Algorithms for Brain Tumor Segmentation, Progression Assessment, and Overall Survival Prediction in the BRATS Challenge," arXiv:1811.02629 [cs.CV], 2019.
-
-    \bibitem{U-Mamba} J. Ma, F. Li, and B. Wang, "U-Mamba: Enhancing Long-range Dependency for Biomedical Image Segmentation," arXiv:2401.04722 [cs.CV], 2024.
-
-    \bibitem{rombach2021highresolution} R. Rombach, A. Blattmann, D. Lorenz, P. Esser, and B. Ommer, "High-Resolution Image Synthesis with Latent Diffusion Models," arXiv:2112.10752 [cs.CV], 2021.
-
-    \bibitem{DBLP:journals/corr/abs-2006-11239} J. Ho, A. Jain, and P. Abbeel, "Denoising Diffusion Probabilistic Models," CoRR, vol. abs/2006.11239, 2020. [Online]. Available: https://arxiv.org/abs/2006.11239
-
-    \bibitem{DBLP:journals/corr/HeZRS15} K. He, X. Zhang, S. Ren, and J. Sun, "Deep Residual Learning for Image Recognition," CoRR, vol. abs/1512.03385, 2015. [Online]. Available: http://arxiv.org/abs/1512.03385
-
-    \bibitem{zhang2022segvit} B. Zhang et al., "SegViT: Semantic Segmentation with Plain Vision Transformers," arXiv:2210.05844 [cs.CV], 2022.
-
-    \bibitem{dosovitskiy2021image} A. Dosovitskiy et al., "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale," arXiv:2010.11929 [cs.CV], 2021.
-    \bibitem{ultralightvmunet} R. Wu, Y. Liu, P. Liang, and Q. Chang, “UltraLight VM-UNet: Parallel Vision Mamba Significantly Reduces Parameters for Skin Lesion Segmentation.” Accessed: Apr. 20, 2024. [Online]. Available: https://arxiv.org/pdf/2403.20035.pdf
-    \bibitem{zhao2017pyramid}
-    H. Zhao, J. Shi, X. Qi, X. Wang and J. Jia, "Pyramid Scene Parsing Network," 2017 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2017, pp. 6230-6239, doi: 10.1109/CVPR.2017.660.
-    \bibitem{dataset} “Brain MRI segmentation,” www.kaggle.com. https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
-    \bibitem{xie2021segformer} E. Xie, W. Wang, Z. Yu, A. Anandkumar, J. Alvarez, and P. Luo, “SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers.” Available: https://arxiv.org/pdf/2105.15203.pdf
-\end{thebibliography}
 \end{document}

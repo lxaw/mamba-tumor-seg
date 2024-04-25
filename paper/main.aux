@@ -1,11 +1,15 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
+\providecommand{\transparent@use}[1]{}
 \providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
 \HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
 \global\let\oldnewlabel\newlabel
 \gdef\newlabel#1#2{\newlabelxx{#1}#2}
 \gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
 \AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
 \let\newlabel\oldnewlabel
 \fi}
 \fi}
@@ -21,7 +25,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
 \citation{zhao2017pyramid}
 \citation{gu2023mamba}
-\citation{ultralightvmunet}
+\citation{wu2024ultralight}
 \citation{dataset}
 \citation{gu2023mamba}
 \citation{gu2023mamba}
@@ -32,63 +36,68 @@
 \@writefile{toc}{\contentsline {section}{\numberline {IV}Output Data}{2}{section.4}\protected@file@percent }
 \newlabel{sec3}{{IV}{2}{Output Data}{section.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {V}Mamba}{2}{section.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Distributions of tumor and non-tumor images in the train, validation, and test datasets.}}{2}{figure.1}\protected@file@percent }
-\newlabel{fig:datastats}{{1}{2}{Distributions of tumor and non-tumor images in the train, validation, and test datasets}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Distributions of tumor and non-tumor images in the train, validation, and test datasets.\relax }}{2}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:datastats}{{1}{2}{Distributions of tumor and non-tumor images in the train, validation, and test datasets.\relax }{figure.caption.1}{}}
 \citation{ronneberger2015unet}
-\citation{DBLP:journals/corr/HeZRS15}
-\citation{U-Mamba}
+\citation{he2015deep}
+\citation{ma2024umamba}
 \citation{dosovitskiy2021image}
 \citation{ronneberger2015unet}
 \citation{ronneberger2015unet}
-\citation{DBLP:journals/corr/abs-2006-11239}
+\citation{ho2020denoising}
 \citation{rombach2021highresolution}
-\citation{DBLP:journals/corr/HeZRS15}
-\citation{U-Mamba}
+\citation{he2015deep}
+\citation{ma2024umamba}
 \citation{gu2022efficiently}
 \citation{xie2021segformer}
-\citation{ultralightvmunet}
+\citation{wu2024ultralight}
 \@writefile{toc}{\contentsline {section}{\numberline {VI}Compared Models}{3}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}U-Net}{3}{subsection.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}ResNet}{3}{subsection.6.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}U-Mamba}{3}{subsection.6.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}SegFormer}{3}{subsection.6.4}\protected@file@percent }
-\citation{U-Mamba}
-\citation{ultralightvmunet}
+\citation{ma2024umamba}
+\citation{wu2024ultralight}
 \citation{zhao2017pyramid}
-\citation{ultralightvmunet}
+\citation{wu2024ultralight}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}UltraLight VM-UNet}{4}{subsection.6.5}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {VII}Our Models}{4}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-A}}UMambaBot\_PPBot}{4}{subsection.7.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-B}}UL-VM-UNet\_v1}{4}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-C}}UL-VM-UNet\_v2}{4}{subsection.7.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-D}}UL-VM-UNet\_v3}{4}{subsection.7.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-E}}UL-VM-UNet\_v4}{4}{subsection.7.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-F}}UL-VM-UNet\_v5}{4}{subsection.7.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {VIII}Results}{4}{section.8}\protected@file@percent }
-\bibcite{ronneberger2015unet}{1}
-\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Comparison of different segmentation models.}}{5}{table.1}\protected@file@percent }
-\newlabel{tab:model_comparison}{{I}{5}{Comparison of different segmentation models}{table.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size.}}{5}{figure.2}\protected@file@percent }
-\newlabel{fig:balls}{{2}{5}{A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Example segmentations.}}{5}{figure.3}\protected@file@percent }
-\newlabel{fig:segs}{{3}{5}{Example segmentations}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-A}}UMambaBot-PP}{4}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-B}}UL-VM-UNet-v1}{4}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-C}}UL-VM-UNet-v2}{4}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-D}}UL-VM-UNet-v3}{4}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-E}}UL-VM-UNet-v4}{4}{subsection.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-F}}UL-VM-UNet-v5}{4}{subsection.7.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-G}}UL-VM-UNet-v6}{4}{subsection.7.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Results}{5}{section.8}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Comparison of different segmentation models.\relax }}{5}{table.caption.2}\protected@file@percent }
+\newlabel{tab:model_comparison}{{I}{5}{Comparison of different segmentation models.\relax }{table.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size.\relax }}{5}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:balls}{{2}{5}{A scatter plot of Dice Score vs model parameter count, where "M" means "millions. The points are scaled to help represent size.\relax }{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Sample of segmentation results from each model and their dice score for the segmentation. (Additional samples in Appendix \ref  {supp_figs})\relax }}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:segs}{{3}{5}{Sample of segmentation results from each model and their dice score for the segmentation. (Additional samples in Appendix \ref {supp_figs})\relax }{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {IX}Conclusion}{5}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{Appendix}{5}{section*.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A}Training Pipeline}{5}{subsection.Appendix.A.1}\protected@file@percent }
-\bibcite{vaswani2023attention}{2}
-\bibcite{gu2022efficiently}{3}
-\bibcite{gu2023mamba}{4}
-\bibcite{bakas2019identifying}{5}
-\bibcite{U-Mamba}{6}
-\bibcite{rombach2021highresolution}{7}
-\bibcite{DBLP:journals/corr/abs-2006-11239}{8}
-\bibcite{DBLP:journals/corr/HeZRS15}{9}
-\bibcite{zhang2022segvit}{10}
+\bibstyle{ieeetr}
+\bibdata{refs}
+\bibcite{bakas2019identifying}{1}
+\bibcite{ronneberger2015unet}{2}
+\bibcite{vaswani2023attention}{3}
+\bibcite{gu2022efficiently}{4}
+\bibcite{gu2023mamba}{5}
+\bibcite{zhao2017pyramid}{6}
+\bibcite{wu2024ultralight}{7}
+\bibcite{dataset}{8}
+\bibcite{he2015deep}{9}
+\bibcite{ma2024umamba}{10}
 \bibcite{dosovitskiy2021image}{11}
-\bibcite{ultralightvmunet}{12}
-\bibcite{zhao2017pyramid}{13}
-\bibcite{dataset}{14}
-\bibcite{xie2021segformer}{15}
+\bibcite{ho2020denoising}{12}
+\bibcite{xie2021segformer}{13}
+\@writefile{toc}{\contentsline {section}{References}{6}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Appendix}{6}{section*.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Training Pipeline}{6}{subsection.Appendix.A.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {B}Supplementary Figures}{6}{subsection.Appendix.A.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{6}{section*.2}\protected@file@percent }
-\gdef \@abspage@last{6}
+\newlabel{supp_figs}{{B}{6}{Supplementary Figures}{subsection.Appendix.A.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces In some cases, such as this one, it was observed that models with too few parameters (UltraLight-VM-UNet, UltraLight-VM-UNet-v2) don't detect sections of the tumor during segmentation.\relax }}{7}{figure.caption.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces UltraLight-VM-UNet-v5 achieved segmentation results equivalent to UMambaBot with approximately 9.1 M less parameters.\relax }}{7}{figure.caption.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces An example of models with pyramidal pooling in the PVM blocks (UltraLight-VM-UNet-v4, UltraLight-VM-UNet-v6) achieved an improvement over a model without (UltraLight-VM-UNet-v5).\relax }}{8}{figure.caption.11}\protected@file@percent }
