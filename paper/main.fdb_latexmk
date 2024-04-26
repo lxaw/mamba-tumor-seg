@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1714142576 "main.aux" "main.bbl" "main" 1714143008 0
+["bibtex main"] 1714142576 "main.aux" "main.bbl" "main" 1714143433 0
   "./refs.bib" 1714141478 4212 a6b729d0c3ed83264d1852e3273f923d ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1714143008 7509 88c87db1e661c639bde7e7dbf2b035db "pdflatex"
+  "main.aux" 1714143433 7509 88c87db1e661c639bde7e7dbf2b035db "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1714143005 "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" "main.pdf" "main" 1714143008 0
-  "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" 1714143005 29903 8ba992253121e207d3838413f3a13224 ""
+["pdflatex"] 1714143431 "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" "main.pdf" "main" 1714143433 0
+  "/Users/lexingtonwhalen/Desktop/d/personal/school/grad/usc/mamba-tumor-seg/paper/main.tex" 1714143430 29807 1e6d8e3162493be7fd9ad177db33cde1 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/adobe/courier/pcrr7t.tfm" 1136768653 960 379cc0019370a9e0208a0a3f949f847a ""
@@ -161,10 +161,10 @@
   "imgs/balls.png" 1714140036 58804 98ca20d300e92f42de382d3c648551f4 ""
   "imgs/data_stats.png" 1713819662 52795 c98e5756719d3f8c9236800ad47a8459 ""
   "imgs/tumor_seg_ex.png" 1714140036 117349 40e210806d2c76c2314c1fa4630c4f16 ""
-  "main.aux" 1714143008 7509 88c87db1e661c639bde7e7dbf2b035db "pdflatex"
+  "main.aux" 1714143433 7509 88c87db1e661c639bde7e7dbf2b035db "pdflatex"
   "main.bbl" 1714142577 2144 ec372c6fc1e018ab3c5cc101d27ea475 "bibtex main"
-  "main.out" 1714143008 2740 0fe786f84004ded5c3dbc0579915a3bf "pdflatex"
-  "main.tex" 1714143005 29903 8ba992253121e207d3838413f3a13224 ""
+  "main.out" 1714143433 2740 0fe786f84004ded5c3dbc0579915a3bf "pdflatex"
+  "main.tex" 1714143430 29807 1e6d8e3162493be7fd9ad177db33cde1 ""
   (generated)
   "main.aux"
   "main.log"

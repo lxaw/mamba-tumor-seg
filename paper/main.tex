@@ -240,8 +240,8 @@ Future work could involve further refinements and optimizations of the Mamba-bas
 % First appendix section
 \subsection{Training}
 We train multiple models for image segmentation using an 80-10-10 train-test-evaluation split. The accuracy of the models is evaluated using Dice scores, and the DiceLoss is used as the loss function.  \\
-PP-UMamba, UMambaBot, ResNet18, ResNet50, and UNet were trained for 100 epochs using DiceLoss as the loss function and Adam as the optimizer with a learning rate of 3e-4.\\
-UltraLight-VM-UNet and UltraLight-VM-UNet\_v1-v6 were trained for 100 epochs using BCEDiceLoss as the loss function and AdamW as the optimizer with a learning rate of 3e-4. All UltraLight variants (v1-v6) are trained using the same settings as UltraLight-VM-UNet. \\
+UMambaBot-PP, UMambaBot, ResNet18, ResNet50, and UNet were trained for 100 epochs using DiceLoss as the loss function and Adam as the optimizer with a learning rate of 3e-4.\\
+UL-VM-UNet and UL-VM-UNet-v1 through v6 were trained for 100 epochs using BCEDiceLoss as the loss function and AdamW as the optimizer with a learning rate of 3e-4.  \\
 SegFormer was trained for 100 epochs using BCEWithLogitsLoss as the loss function and AdamW as the optimizer with a learning rate of 1e-4. The learning rate is reduced on a plateau using a scheduler, and early stopping is employed. \\
 More detailed training information can be found in our GitHub repository: \url{https://github.com/lxaw/mamba-tumor-seg/} and under the \texttt{tests} folder.
 
