@@ -104,13 +104,22 @@ IOU:        0.7531
 Dice:       0.8548
 
 
-Ultra LightM-UNet Modified 5   
-----------------------------------  # 6 layer UNet, c_list=[16,32,64,128,256,512], to compare to v4
+Ultra LightM-UNet Modified v5   
+----------------------------------  # 6 layer UNet, c_list=[16,32,64,128,256,512], to compare to v4 & v6
 Train time: 489m 43.2s
 #Params:    703885      ~0.7M
 Size(MB):   2.82
 IOU:        0.7638
 Dice:       0.8633
+
+
+Ultra LightM-UNet Modified v6  
+----------------------------------  # 6 layer UNet, c_list=[16,32,64,128,256,512], PP at bottleneck
+Train time: 536 43.5s
+#Params:    769677      ~0.77M
+Size(MB):   3.08
+IOU:        0.7630
+Dice:       0.8628
 
 
 
