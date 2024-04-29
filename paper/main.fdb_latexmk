@@ -1,15 +1,15 @@
 # Fdb version 3
-["bibtex main"] 1714053115 "main.aux" "main.bbl" "main" 1714053116
+["bibtex main"] 1714418734 "main.aux" "main.bbl" "main" 1714418735
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/ieeetr.bst" 1292289607 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "main.aux" 1714053116 7532 822dc39bd3ffeb9c3a5528ac8f619ccf "pdflatex"
-  "refs.bib" 1713998629 12132 6d433460094c64b7b42258f336168fc5 ""
+  "main.aux" 1714418735 7615 080104438e81659222004f866de809a7 "pdflatex"
+  "refs.bib" 1714418497 4463 0d40461682145ea88b871520249d7481 ""
   (generated)
   "main.blg"
   "main.bbl"
-["pdflatex"] 1714053115 "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.tex" "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.pdf" "main" 1714053116
+["pdflatex"] 1714418734 "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.tex" "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.pdf" "main" 1714418735
   "/etc/texmf/web2c/texmf.cnf" 1710362946 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.aux" 1714053116 7532 822dc39bd3ffeb9c3a5528ac8f619ccf ""
-  "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.tex" 1714053106 29485 5668f8d29221019c3de5a20543928075 ""
+  "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.aux" 1714418735 7615 080104438e81659222004f866de809a7 ""
+  "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.tex" 1714418730 29593 7456b7c8c4c095ca88d5ca1aaa18f287 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -136,14 +136,14 @@
   "imgs/balls.png" 1714048319 58804 98ca20d300e92f42de382d3c648551f4 ""
   "imgs/data_stats.png" 1713878722 52795 c98e5756719d3f8c9236800ad47a8459 ""
   "imgs/tumor_seg_ex.png" 1714049229 117349 40e210806d2c76c2314c1fa4630c4f16 ""
-  "main.aux" 1714053116 7532 822dc39bd3ffeb9c3a5528ac8f619ccf "pdflatex"
-  "main.bbl" 1714053115 7060 d51841c25182d05ca02cc5bbbf8a4691 "bibtex main"
-  "main.out" 1714053116 1400 699681ecd0b4131c56f158fe56d09a5b "pdflatex"
-  "main.tex" 1714053106 29485 5668f8d29221019c3de5a20543928075 ""
+  "main.aux" 1714418735 7615 080104438e81659222004f866de809a7 "pdflatex"
+  "main.bbl" 1714418734 2184 96ba0dc64ee9a2313bbbe1ec719d571e "bibtex main"
+  "main.out" 1714418735 1398 fe3db575e9a26124ec8e56215ff6195f "pdflatex"
+  "main.tex" 1714418730 29593 7456b7c8c4c095ca88d5ca1aaa18f287 ""
   (generated)
   "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.log"
-  "main.out"
   "/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.pdf"
-  "main.pdf"
-  "main.log"
   "main.aux"
+  "main.out"
+  "main.log"
+  "main.pdf"

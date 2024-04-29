@@ -1,72 +1,7 @@
 \begin{thebibliography}{10}
 
 \bibitem{bakas2019identifying}
-S.~Bakas, M.~Reyes, A.~Jakab, S.~Bauer, M.~Rempfler, A.~Crimi, R.~T. Shinohara,
-  C.~Berger, S.~M. Ha, M.~Rozycki, M.~Prastawa, E.~Alberts, J.~Lipkova,
-  J.~Freymann, J.~Kirby, M.~Bilello, H.~Fathallah-Shaykh, R.~Wiest,
-  J.~Kirschke, B.~Wiestler, R.~Colen, A.~Kotrotsou, P.~Lamontagne, D.~Marcus,
-  M.~Milchenko, A.~Nazeri, M.-A. Weber, A.~Mahajan, U.~Baid, E.~Gerstner,
-  D.~Kwon, G.~Acharya, M.~Agarwal, M.~Alam, A.~Albiol, A.~Albiol, F.~J. Albiol,
-  V.~Alex, N.~Allinson, P.~H.~A. Amorim, A.~Amrutkar, G.~Anand, S.~Andermatt,
-  T.~Arbel, P.~Arbelaez, A.~Avery, M.~Azmat, P.~B., W.~Bai, S.~Banerjee,
-  B.~Barth, T.~Batchelder, K.~Batmanghelich, E.~Battistella, A.~Beers,
-  M.~Belyaev, M.~Bendszus, E.~Benson, J.~Bernal, H.~N. Bharath, G.~Biros,
-  S.~Bisdas, J.~Brown, M.~Cabezas, S.~Cao, J.~M. Cardoso, E.~N. Carver,
-  A.~Casamitjana, L.~S. Castillo, M.~Catà, P.~Cattin, A.~Cerigues, V.~S.
-  Chagas, S.~Chandra, Y.-J. Chang, S.~Chang, K.~Chang, J.~Chazalon, S.~Chen,
-  W.~Chen, J.~W. Chen, Z.~Chen, K.~Cheng, A.~R. Choudhury, R.~Chylla,
-  A.~Clérigues, S.~Colleman, R.~G.~R. Colmeiro, M.~Combalia, A.~Costa, X.~Cui,
-  Z.~Dai, L.~Dai, L.~A. Daza, E.~Deutsch, C.~Ding, C.~Dong, S.~Dong, W.~Dudzik,
-  Z.~Eaton-Rosen, G.~Egan, G.~Escudero, T.~Estienne, R.~Everson, J.~Fabrizio,
-  Y.~Fan, L.~Fang, X.~Feng, E.~Ferrante, L.~Fidon, M.~Fischer, A.~P. French,
-  N.~Fridman, H.~Fu, D.~Fuentes, Y.~Gao, E.~Gates, D.~Gering, A.~Gholami,
-  W.~Gierke, B.~Glocker, M.~Gong, S.~González-Villá, T.~Grosges, Y.~Guan,
-  S.~Guo, S.~Gupta, W.-S. Han, I.~S. Han, K.~Harmuth, H.~He,
-  A.~Hernández-Sabaté, E.~Herrmann, N.~Himthani, W.~Hsu, C.~Hsu, X.~Hu,
-  X.~Hu, Y.~Hu, Y.~Hu, R.~Hua, T.-Y. Huang, W.~Huang, S.~V. Huffel, Q.~Huo,
-  V.~HV, K.~M. Iftekharuddin, F.~Isensee, M.~Islam, A.~S. Jackson, S.~R.
-  Jambawalikar, A.~Jesson, W.~Jian, P.~Jin, V.~J.~M. Jose, A.~Jungo, B.~Kainz,
-  K.~Kamnitsas, P.-Y. Kao, A.~Karnawat, T.~Kellermeier, A.~Kermi, K.~Keutzer,
-  M.~T. Khadir, M.~Khened, P.~Kickingereder, G.~Kim, N.~King, H.~Knapp,
-  U.~Knecht, L.~Kohli, D.~Kong, X.~Kong, S.~Koppers, A.~Kori, G.~Krishnamurthi,
-  E.~Krivov, P.~Kumar, K.~Kushibar, D.~Lachinov, T.~Lambrou, J.~Lee, C.~Lee,
-  Y.~Lee, M.~Lee, S.~Lefkovits, L.~Lefkovits, J.~Levitt, T.~Li, H.~Li, W.~Li,
-  H.~Li, X.~Li, Y.~Li, H.~Li, Z.~Li, X.~Li, Z.~Li, X.~Li, W.~Li, Z.-S. Lin,
-  F.~Lin, P.~Lio, C.~Liu, B.~Liu, X.~Liu, M.~Liu, J.~Liu, L.~Liu, X.~Llado,
-  M.~M. Lopez, P.~R. Lorenzo, Z.~Lu, L.~Luo, Z.~Luo, J.~Ma, K.~Ma, T.~Mackie,
-  A.~Madabushi, I.~Mahmoudi, K.~H. Maier-Hein, P.~Maji, C.~Mammen, A.~Mang,
-  B.~S. Manjunath, M.~Marcinkiewicz, S.~McDonagh, S.~McKenna, R.~McKinley,
-  M.~Mehl, S.~Mehta, R.~Mehta, R.~Meier, C.~Meinel, D.~Merhof, C.~Meyer,
-  R.~Miller, S.~Mitra, A.~Moiyadi, D.~Molina-Garcia, M.~A.~B. Monteiro,
-  G.~Mrukwa, A.~Myronenko, J.~Nalepa, T.~Ngo, D.~Nie, H.~Ning, C.~Niu, N.~K.
-  Nuechterlein, E.~Oermann, A.~Oliveira, D.~D.~C. Oliveira, A.~Oliver, A.~F.~I.
-  Osman, Y.-N. Ou, S.~Ourselin, N.~Paragios, M.~S. Park, B.~Paschke, J.~G.
-  Pauloski, K.~Pawar, N.~Pawlowski, L.~Pei, S.~Peng, S.~M. Pereira,
-  J.~Perez-Beteta, V.~M. Perez-Garcia, S.~Pezold, B.~Pham, A.~Phophalia,
-  G.~Piella, G.~N. Pillai, M.~Piraud, M.~Pisov, A.~Popli, M.~P. Pound,
-  R.~Pourreza, P.~Prasanna, V.~Prkovska, T.~P. Pridmore, S.~Puch, Élodie
-  Puybareau, B.~Qian, X.~Qiao, M.~Rajchl, S.~Rane, M.~Rebsamen, H.~Ren, X.~Ren,
-  K.~Revanuru, M.~Rezaei, O.~Rippel, L.~C. Rivera, C.~Robert, B.~Rosen,
-  D.~Rueckert, M.~Safwan, M.~Salem, J.~Salvi, I.~Sanchez, I.~Sánchez, H.~M.
-  Santos, E.~Sartor, D.~Schellingerhout, K.~Scheufele, M.~R. Scott, A.~A.
-  Scussel, S.~Sedlar, J.~P. Serrano-Rubio, N.~J. Shah, N.~Shah, M.~Shaikh,
-  B.~U. Shankar, Z.~Shboul, H.~Shen, D.~Shen, L.~Shen, H.~Shen, V.~Shenoy,
-  F.~Shi, H.~E. Shin, H.~Shu, D.~Sima, M.~Sinclair, O.~Smedby, J.~M. Snyder,
-  M.~Soltaninejad, G.~Song, M.~Soni, J.~Stawiaski, S.~Subramanian, L.~Sun,
-  R.~Sun, J.~Sun, K.~Sun, Y.~Sun, G.~Sun, S.~Sun, Y.~R. Suter, L.~Szilagyi,
-  S.~Talbar, D.~Tao, D.~Tao, Z.~Teng, S.~Thakur, M.~H. Thakur, S.~Tharakan,
-  P.~Tiwari, G.~Tochon, T.~Tran, Y.~M. Tsai, K.-L. Tseng, T.~A. Tuan,
-  V.~Turlapov, N.~Tustison, M.~Vakalopoulou, S.~Valverde, R.~Vanguri,
-  E.~Vasiliev, J.~Ventura, L.~Vera, T.~Vercauteren, C.~A. Verrastro,
-  L.~Vidyaratne, V.~Vilaplana, A.~Vivekanandan, G.~Wang, Q.~Wang, C.~J. Wang,
-  W.~Wang, D.~Wang, R.~Wang, Y.~Wang, C.~Wang, G.~Wang, N.~Wen, X.~Wen,
-  L.~Weninger, W.~Wick, S.~Wu, Q.~Wu, Y.~Wu, Y.~Xia, Y.~Xu, X.~Xu, P.~Xu, T.-L.
-  Yang, X.~Yang, H.-Y. Yang, J.~Yang, H.~Yang, G.~Yang, H.~Yao, X.~Ye, C.~Yin,
-  B.~Young-Moxon, J.~Yu, X.~Yue, S.~Zhang, A.~Zhang, K.~Zhang, X.~Zhang,
-  L.~Zhang, X.~Zhang, Y.~Zhang, L.~Zhang, J.~Zhang, X.~Zhang, T.~Zhang,
-  S.~Zhao, Y.~Zhao, X.~Zhao, L.~Zhao, Y.~Zheng, L.~Zhong, C.~Zhou, X.~Zhou,
-  F.~Zhou, H.~Zhu, J.~Zhu, Y.~Zhuge, W.~Zong, J.~Kalpathy-Cramer, K.~Farahani,
-  C.~Davatzikos, K.~van Leemput, and B.~Menze, ``Identifying the best machine
+S.~Bakas, M.~Reyes, A.~Jakab, {\em et~al.}, ``Identifying the best machine
   learning algorithms for brain tumor segmentation, progression assessment, and
   overall survival prediction in the brats challenge,'' 2019.
 
@@ -85,18 +20,6 @@ A.~Gu, K.~Goel, and C.~Ré, ``Efficiently modeling long sequences with
 \bibitem{gu2023mamba}
 A.~Gu and T.~Dao, ``Mamba: Linear-time sequence modeling with selective state
   spaces,'' 2023.
-
-\bibitem{zhao2017pyramid}
-H.~Zhao, J.~Shi, X.~Qi, X.~Wang, and J.~Jia, ``Pyramid scene parsing network,''
-  in {\em 2017 IEEE Conference on Computer Vision and Pattern Recognition
-  (CVPR)}, pp.~6230--6239, 2017.
-
-\bibitem{wu2024ultralight}
-R.~Wu, Y.~Liu, P.~Liang, and Q.~Chang, ``Ultralight vm-unet: Parallel vision
-  mamba significantly reduces parameters for skin lesion segmentation,'' 2024.
-
-\bibitem{dataset}
-M.~Buda, ``Brain mri segmentation,'' May 2019.
 
 \bibitem{he2015deep}
 K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
@@ -120,5 +43,17 @@ J.~Ho, A.~Jain, and P.~Abbeel, ``Denoising diffusion probabilistic models,''
 E.~Xie, W.~Wang, Z.~Yu, A.~Anandkumar, J.~M. Alvarez, and P.~Luo, ``Segformer:
   Simple and efficient design for semantic segmentation with transformers,''
   2021.
+
+\bibitem{wu2024ultralight}
+R.~Wu, Y.~Liu, P.~Liang, and Q.~Chang, ``Ultralight vm-unet: Parallel vision
+  mamba significantly reduces parameters for skin lesion segmentation,'' 2024.
+
+\bibitem{zhao2017pyramid}
+H.~Zhao, J.~Shi, X.~Qi, X.~Wang, and J.~Jia, ``Pyramid scene parsing network,''
+  in {\em 2017 IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, pp.~6230--6239, 2017.
+
+\bibitem{dataset}
+M.~Buda, ``Brain mri segmentation,'' May 2019.
 
 \end{thebibliography}

@@ -65,23 +65,6 @@ Selective State Spaces (SSMs) pose an improvement in computational efficiency ov
 
 Making use of Structured State Spaces, presented by Gu, Goel, and Ré \cite{gu2022efficiently}, for their superiority in long range dependency tasks, a specific type of SSM, the Mamba architecture, by Gu and Dao \cite{gu2023mamba}, proposed a foundational model to operate on arbitrary sequences from a variety of inputs in the domain of sequence modeling. This model achieves the power of Transformers while scaling linearly in sequencing length to be computationally efficient. Additionally, the selection mechanism of Mamba improves on an SSMs ability to focus on or ignore sections in an input sequence by parameterizing the parameters of an SSM to reflect the current context of the input. The Mamba model and its application to brain tumor MRI imaging segmentation will be evaluated in this project.
 
-\section{Proposed Methodology}
-In this paper, we strive to maintain high accuracy in our image segmentation while also keeping low parameter counts. We primarily seek to use pyramidal pooling modules \cite{zhao2017pyramid} to improve accuracy, and use a variant of the Mamba \cite{gu2023mamba} architecture inspired by \cite{wu2024ultralight} to maintain small parameter sizes.
-
-\section{Input Data}\label{sec2}
-We shall be using a Brain MRI segmentation dataset found in \cite{dataset}. This dataset has been used in several papers regarding classification of the shape and severity of tumors, and provides an adequate dataset for research purposes in the field of medical image analysis, particularly in the area of brain MRI segmentation. Researchers have utilized this dataset in various studies focusing on the classification of tumor shapes and the assessment of tumor severity. With its comprehensive collection of brain MRI scans, along with corresponding segmentation masks, the dataset offers valuable resources for developing and evaluating algorithms aimed at automating tumor detection and analysis.
-
-The dataset contains brain MRI images along with their segmentation masks for 110 patients. There were a total of 3143 train images, 393 validation images, and 393 test images. The distribution of the tumor and non-tumor images is shown in Figure \ref{fig:datastats}.
-
-
-\section{Output Data}\label{sec3}
-The output of this model shall be segmentation masks for new, never before seen images.
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\columnwidth]{imgs/data_stats.png}
-    \caption{Distributions of tumor and non-tumor images in the train, validation, and test datasets.}
-    \label{fig:datastats}
-\end{figure}
 
 \section{Mamba}
 Mamba \cite{gu2023mamba} is a recently proposed architecture that combines the modeling power of Transformers with the linear scaling efficiency of state space models (SSMs). The key idea is to augment SSMs with a selection mechanism that allows the model parameters to vary based on the input, enabling it to perform content-aware reasoning.
@@ -102,7 +85,9 @@ The Mamba block interleaves the selective SSM with linear projections, convoluti
 \end{enumerate}
 These blocks are stacked to form the Mamba architecture. Compared to Transformers, Mamba can achieve comparable modeling performance while scaling linearly in sequence length rather than quadratically \cite{gu2023mamba}. Overall, the selective SSM leverages the strengths of RNNs, CNNs and Transformers - it maintains an unbounded context window like RNNs, can be parallelized like CNNs, and achieves content-aware reasoning like Transformers, while being more efficient than all three. This makes Mamba a promising foundation model for processing long sequences across various domains.
 
-\section{Compared Models}
+
+
+\section{Related Works}
 Prior to an analysis of how the Pyramidal U-Mamba compares, we shall explain what models we chose for comparison and why.
 
 For this our analysis, we compare four models against our own developed ones. The models are U-Net\cite{ronneberger2015unet}, ResNet18 \cite{he2015deep}, ResNet50, U-Mamba\cite{ma2024umamba}, and SegViT\cite{dosovitskiy2021image}. Below we explain our choices.
@@ -125,6 +110,25 @@ The key innovation of the UltraLight VM-UNet is the proposed Parallel Vision Mam
 The UltraLight VM-UNet is reported to have only 0.049 million parameters and a computational cost of 0.060 GFLOPs, which is significantly lower than traditional convolutional neural networks and transformers used for image segmentation tasks. Despite its lightweight nature, the authors demonstrate that the UltraLight VM-UNet achieves competitive performance on three publicly available skin lesion segmentation datasets, outperforming several state-of-the-art lightweight models.
 
 The success of the UltraLight VM-UNet can be attributed to the authors' in-depth analysis of the key factors influencing the parameters of the Vision Mamba module. By identifying the number of input channels as a critical factor affecting the parameter count, they were able to design the PVM Layer to process features in parallel while keeping the overall channel count constant, leading to a significant reduction in parameters without compromising performance.
+
+\section{Proposed Methodology}
+In this paper, we strive to maintain high accuracy in our image segmentation while also keeping low parameter counts. We primarily seek to use pyramidal pooling modules \cite{zhao2017pyramid} to improve accuracy, and use a variant of the Mamba \cite{gu2023mamba} architecture inspired by \cite{wu2024ultralight} to maintain small parameter sizes.
+
+\section{Input Data}\label{sec2}
+We shall be using a Brain MRI segmentation dataset found in \cite{dataset}. This dataset has been used in several papers regarding classification of the shape and severity of tumors, and provides an adequate dataset for research purposes in the field of medical image analysis, particularly in the area of brain MRI segmentation. Researchers have utilized this dataset in various studies focusing on the classification of tumor shapes and the assessment of tumor severity. With its comprehensive collection of brain MRI scans, along with corresponding segmentation masks, the dataset offers valuable resources for developing and evaluating algorithms aimed at automating tumor detection and analysis.
+
+The dataset contains brain MRI images along with their segmentation masks for 110 patients. There were a total of 3143 train images, 393 validation images, and 393 test images. The distribution of the tumor and non-tumor images is shown in Figure \ref{fig:datastats}.
+
+
+\section{Output Data}\label{sec3}
+The output of this model shall be segmentation masks for new, never before seen images.
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{imgs/data_stats.png}
+    \caption{Distributions of tumor and non-tumor images in the train, validation, and test datasets.}
+    \label{fig:datastats}
+\end{figure}
+
 
 \section{Our Models}
 
@@ -164,7 +168,7 @@ Another variation to further test the effects of incorporating pyramidal pooling
 
 \section{Results}
 We now compare our models against ResNet18, ResNet50, standard U-Mamba bottleneck, UNet, and UltraLight VM-UNet. We train for 100 epochs on all models, and use dice-loss with Adam optimizer. We train on roughly 3000 images, and validate on roughly 400. we then test on roughly 400. We show the distributions of our data in Figure \ref{fig:datastats}.
-Model results are shown in Table \ref{tab:model_comparison} and Figures \ref{fig:balls},\ref{fig:segs}, with additional segmentation results in Appendix \ref{supp_figs}.
+Model results are shown in Table \ref{tab:model_comparison} and Figures \ref{fig:balls},\ref{fig:segs}, with additional segmentation results in Appendix \ref{supp_figs}. Additional training information can be found in Appendix \ref{trainingpipeline}.
 
 
 % Adjust the vertical spacing between rows
@@ -238,7 +242,7 @@ Future work could involve further refinements and optimizations of the Mamba-bas
 % Redefine the section numbering for the appendix (optional)
 \renewcommand{\thesection}{\Alph{section}}
 % First appendix section
-\subsection{Training Pipeline}
+\subsection{Training Pipeline} \label{trainingpipeline}
 The training pipeline for our model consists of the following steps:
 
 1. Data preprocessing: The dataset is split into training, validation, and test sets. The images are resized to a uniform size and normalized.

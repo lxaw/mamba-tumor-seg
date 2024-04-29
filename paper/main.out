@@ -1,14 +1,14 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Proposed Methodology}{}% 2
-\BOOKMARK [1][-]{section.3}{Input Data}{}% 3
-\BOOKMARK [1][-]{section.4}{Output Data}{}% 4
-\BOOKMARK [1][-]{section.5}{Mamba}{}% 5
-\BOOKMARK [1][-]{section.6}{Compared Models}{}% 6
-\BOOKMARK [2][-]{subsection.6.1}{U-Net}{section.6}% 7
-\BOOKMARK [2][-]{subsection.6.2}{ResNet}{section.6}% 8
-\BOOKMARK [2][-]{subsection.6.3}{U-Mamba}{section.6}% 9
-\BOOKMARK [2][-]{subsection.6.4}{SegFormer}{section.6}% 10
-\BOOKMARK [2][-]{subsection.6.5}{UltraLight VM-UNet}{section.6}% 11
+\BOOKMARK [1][-]{section.2}{Mamba}{}% 2
+\BOOKMARK [1][-]{section.3}{Related Works}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{U-Net}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{ResNet}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{U-Mamba}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{SegFormer}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{UltraLight VM-UNet}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Proposed Methodology}{}% 9
+\BOOKMARK [1][-]{section.5}{Input Data}{}% 10
+\BOOKMARK [1][-]{section.6}{Output Data}{}% 11
 \BOOKMARK [1][-]{section.7}{Our Models}{}% 12
 \BOOKMARK [2][-]{subsection.7.1}{UMambaBot-PP}{section.7}% 13
 \BOOKMARK [2][-]{subsection.7.2}{UL-VM-UNet-v1}{section.7}% 14

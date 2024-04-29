@@ -225,9 +225,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
-INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
-INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
-INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm
@@ -238,6 +235,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
+INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
+INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/balls.png
