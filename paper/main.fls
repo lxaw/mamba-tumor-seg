@@ -233,8 +233,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
 INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png
 INPUT /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png

@@ -39,6 +39,10 @@ A.~Dosovitskiy, L.~Beyer, A.~Kolesnikov, D.~Weissenborn, X.~Zhai,
 J.~Ho, A.~Jain, and P.~Abbeel, ``Denoising diffusion probabilistic models,''
   2020.
 
+\bibitem{rombach2022highresolution}
+R.~Rombach, A.~Blattmann, D.~Lorenz, P.~Esser, and B.~Ommer, ``High-resolution
+  image synthesis with latent diffusion models,'' 2022.
+
 \bibitem{xie2021segformer}
 E.~Xie, W.~Wang, Z.~Yu, A.~Anandkumar, J.~M. Alvarez, and P.~Luo, ``Segformer:
   Simple and efficient design for semantic segmentation with transformers,''

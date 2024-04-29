@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.22)  29 APR 2024 15:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.22)  29 APR 2024 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -440,38 +440,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-
-LaTeX Warning: Citation `rombach2021highresolution' on page 2 undefined on input line 96.
-
-[2]
+] [2]
 Underfull \hbox (badness 2744) in paragraph at lines 110--111
 \OT1/ptm/m/n/10 mil-lion pa-ram-e-ters and a com-pu-ta-tional cost of 0.060
  []
 
-<imgs/data_stats.png, id=162, 571.13374pt x 992.70876pt>
+<imgs/data_stats.png, id=164, 571.13374pt x 992.70876pt>
 File: imgs/data_stats.png Graphic file (type png)
 <use imgs/data_stats.png>
 Package pdftex.def Info: imgs/data_stats.png  used on input line 127.
 (pdftex.def)             Requested size: 252.0pt x 438.005pt.
 [3] [4 </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/data_stats.png (PNG copy)>]
-<imgs/balls.png, id=187, 713.3049pt x 426.393pt>
+<imgs/balls.png, id=189, 713.3049pt x 426.393pt>
 File: imgs/balls.png Graphic file (type png)
 <use imgs/balls.png>
 Package pdftex.def Info: imgs/balls.png  used on input line 205.
 (pdftex.def)             Requested size: 252.0pt x 150.63861pt.
-<imgs/tumor_seg_ex.png, id=189, 963.6pt x 542.025pt>
+<imgs/tumor_seg_ex.png, id=191, 963.6pt x 542.025pt>
 File: imgs/tumor_seg_ex.png Graphic file (type png)
 <use imgs/tumor_seg_ex.png>
 Package pdftex.def Info: imgs/tumor_seg_ex.png  used on input line 212.
 (pdftex.def)             Requested size: 252.0pt x 141.75023pt.
-
-Underfull \hbox (badness 1389) in paragraph at lines 224--225
-[]\OT1/ptm/m/n/10 Our ex-per-i-ments and com-par-isons with state-of-the-art
- []
-
-[5 </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/balls.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/tumor_seg_ex.png (PNG copy)>] (/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.bbl)
-<imgs/14_9.png, id=200, 1806.75pt x 478.4274pt>
+ [5 </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/balls.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/tumor_seg_ex.png (PNG copy)>] (/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.bbl)
+<imgs/14_9.png, id=202, 1806.75pt x 478.4274pt>
 File: imgs/14_9.png Graphic file (type png)
 <use imgs/14_9.png>
 Package pdftex.def Info: imgs/14_9.png  used on input line 263.
@@ -480,7 +471,7 @@ Package pdftex.def Info: imgs/14_9.png  used on input line 263.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/22_4.png, id=201, 1806.75pt x 478.4274pt>
+<imgs/22_4.png, id=203, 1806.75pt x 478.4274pt>
 File: imgs/22_4.png Graphic file (type png)
 <use imgs/22_4.png>
 Package pdftex.def Info: imgs/22_4.png  used on input line 268.
@@ -488,7 +479,7 @@ Package pdftex.def Info: imgs/22_4.png  used on input line 268.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/13_4.png, id=202, 1806.75pt x 478.4274pt>
+<imgs/13_4.png, id=204, 1806.75pt x 478.4274pt>
 File: imgs/13_4.png Graphic file (type png)
 <use imgs/13_4.png>
 Package pdftex.def Info: imgs/13_4.png  used on input line 273.
@@ -496,7 +487,7 @@ Package pdftex.def Info: imgs/13_4.png  used on input line 273.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/19_4.png, id=203, 1806.75pt x 478.4274pt>
+<imgs/19_4.png, id=205, 1806.75pt x 478.4274pt>
 File: imgs/19_4.png Graphic file (type png)
 <use imgs/19_4.png>
 Package pdftex.def Info: imgs/19_4.png  used on input line 279.
@@ -504,7 +495,7 @@ Package pdftex.def Info: imgs/19_4.png  used on input line 279.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/0_0.png, id=204, 1806.75pt x 478.4274pt>
+<imgs/0_0.png, id=206, 1806.75pt x 478.4274pt>
 File: imgs/0_0.png Graphic file (type png)
 <use imgs/0_0.png>
 Package pdftex.def Info: imgs/0_0.png  used on input line 285.
@@ -512,7 +503,7 @@ Package pdftex.def Info: imgs/0_0.png  used on input line 285.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/12_2.png, id=205, 1806.75pt x 478.4274pt>
+<imgs/12_2.png, id=207, 1806.75pt x 478.4274pt>
 File: imgs/12_2.png Graphic file (type png)
 <use imgs/12_2.png>
 Package pdftex.def Info: imgs/12_2.png  used on input line 291.
@@ -520,7 +511,7 @@ Package pdftex.def Info: imgs/12_2.png  used on input line 291.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/22_3.png, id=206, 1806.75pt x 478.4274pt>
+<imgs/22_3.png, id=208, 1806.75pt x 478.4274pt>
 File: imgs/22_3.png Graphic file (type png)
 <use imgs/22_3.png>
 Package pdftex.def Info: imgs/22_3.png  used on input line 295.
@@ -528,7 +519,7 @@ Package pdftex.def Info: imgs/22_3.png  used on input line 295.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/22_7.png, id=207, 1806.75pt x 478.4274pt>
+<imgs/22_7.png, id=209, 1806.75pt x 478.4274pt>
 File: imgs/22_7.png Graphic file (type png)
 <use imgs/22_7.png>
 Package pdftex.def Info: imgs/22_7.png  used on input line 299.
@@ -576,25 +567,21 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 304.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 304.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FE3DB575E9A26124EC8E56215FF6195F;1398.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 304.
  ) 
 Here is how much of TeX's memory you used:
  9876 strings out of 481239
- 156149 string characters out of 5920377
- 457081 words of memory out of 5000000
+ 156173 string characters out of 5920377
+ 457129 words of memory out of 5000000
  24892 multiletter control sequences out of 15000+600000
- 574237 words of font info for 112 fonts, out of 8000000 for 9000
+ 573130 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,44p,1489b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.pdf (8 pages, 1626872 bytes).
+Output written on /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.pdf (8 pages, 1626993 bytes).
 PDF statistics:
- 289 PDF objects out of 1000 (max. 8388607)
- 245 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
+ 291 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
  256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
