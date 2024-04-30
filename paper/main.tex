@@ -168,7 +168,7 @@ Another variation to further test the effects of incorporating pyramidal pooling
 
 \section{Results}
 We now compare our models against ResNet18, ResNet50, standard U-Mamba bottleneck, UNet, and UltraLight VM-UNet. We train for 100 epochs on all models, and use dice-loss with Adam optimizer. We train on roughly 3000 images, and validate on roughly 400. we then test on roughly 400. We show the distributions of our data in Figure \ref{fig:datastats}.
-Model results are shown in Table \ref{tab:model_comparison} and Figures \ref{fig:balls},\ref{fig:segs}, with additional segmentation results in Appendix \ref{supp_figs}. Additional training information can be found in Appendix \ref{trainingpipeline}.
+Model results are shown in Table \ref{tab:model_comparison} and Figures \ref{fig:balls},\ref{fig:segs}, with additional segmentation results in Appendix \ref{supp_figs}. Additional training information can be found in Appendix \ref{training}.
 
 
 % Adjust the vertical spacing between rows
@@ -181,11 +181,11 @@ Model results are shown in Table \ref{tab:model_comparison} and Figures \ref{fig
         \textbf{Model Name} & \textbf{\#Params (M) $\downarrow$} & \textbf{Dice Score $\uparrow$} \\
         \hline
         UMambaBot-PP(Ours) & 10.0 & 0.8867 \\
-        UMambaBot & \textbf{9.8} & 0.8799 \\
+        UMambaBot & 9.8 & 0.8799 \\
         ResNet18 & 13.9 & 0.8648 \\
         ResNet50 & 42.9 & 0.8672 \\
         SegFormer & 17.8 & 0.8454 \\
-        UNet & 7.8 & \textbf{0.8929} \\
+        UNet & \textbf{7.8} & \textbf{0.8929} \\
         \hline\hline
         UL-VM-UNet & 0.049 & 0.79955 \\
         UL-VM-UNet-v1(Ours) & 0.20 & 0.8409 \\
@@ -242,18 +242,17 @@ Future work could involve further refinements and optimizations of the Mamba-bas
 % Redefine the section numbering for the appendix (optional)
 \renewcommand{\thesection}{\Alph{section}}
 % First appendix section
-\subsection{Training Pipeline} \label{trainingpipeline}
-The training pipeline for our model consists of the following steps:
+\subsection{Training Pipeline} \label{training}
 
-1. Data preprocessing: The dataset is split into training, validation, and test sets. The images are resized to a uniform size and normalized.
+We train multiple models for image segmentation using an 80-10-10 train-test-evaluation split. The accuracy of the models is evaluated using Dice scores, and the DiceLoss is used as the loss function.  
 
-2. Model architecture: We employ a convolutional neural network (CNN) with the following layers: [Describe the layers and their configurations].
+UMambaBot-PP, UMambaBot, ResNet18, ResNet50, and UNet were trained for 100 epochs using DiceLoss as the loss function and Adam as the optimizer with a learning rate of 3e-4.
 
-3. Training: The model is trained using the training set for 100 epochs with a batch size of 32. We use the Adam optimizer with a learning rate of 0.0003.
+UL-VM-UNet and UL-VM-UNet-v1 through v6 were trained for 100 epochs using BCEDiceLoss as the loss function and AdamW as the optimizer with a learning rate of 3e-4.  
 
-4. Evaluation: The trained model is evaluated on the validation set to monitor its performance and prevent overfitting. We use the dice loss metric.
+SegFormer was trained for 100 epochs using BCEWithLogitsLoss as the loss function and AdamW as the optimizer with a learning rate of 1e-4. The learning rate is reduced on a plateau using a scheduler, and early stopping is employed. 
 
-5. Testing: Once the model achieves satisfactory performance on the validation set, it is tested on the held-out test set to assess its generalization ability.
+More detailed training information can be found in our GitHub repository: \url{https://github.com/lxaw/mamba-tumor-seg/} and under the \texttt{tests} folder.
 
 % Second appendix section
 \subsection{Supplementary Figures} \label{supp_figs}

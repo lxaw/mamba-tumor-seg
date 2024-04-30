@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.22)  29 APR 2024 15:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2024.3.22)  29 APR 2024 15:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -462,67 +462,83 @@ File: imgs/tumor_seg_ex.png Graphic file (type png)
 Package pdftex.def Info: imgs/tumor_seg_ex.png  used on input line 212.
 (pdftex.def)             Requested size: 252.0pt x 141.75023pt.
  [5 </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/balls.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/tumor_seg_ex.png (PNG copy)>] (/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.bbl)
-<imgs/14_9.png, id=202, 1806.75pt x 478.4274pt>
+Underfull \hbox (badness 2088) in paragraph at lines 251--252
+[]\OT1/ptm/m/n/10 UL-VM-UNet and UL-VM-UNet-v1 through v6 were
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 255.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+[]\OT1/ptm/m/n/10 More de-tailed train-ing in-for-ma-tion can be found
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
+\OT1/ptm/m/n/10 in our GitHub repos-i-tory: []$https : / / github . com / lxaw /
+ []
+
+<imgs/14_9.png, id=203, 1806.75pt x 478.4274pt>
 File: imgs/14_9.png Graphic file (type png)
 <use imgs/14_9.png>
-Package pdftex.def Info: imgs/14_9.png  used on input line 263.
+Package pdftex.def Info: imgs/14_9.png  used on input line 262.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/22_4.png, id=203, 1806.75pt x 478.4274pt>
+<imgs/22_4.png, id=204, 1806.75pt x 478.4274pt>
 File: imgs/22_4.png Graphic file (type png)
 <use imgs/22_4.png>
-Package pdftex.def Info: imgs/22_4.png  used on input line 268.
+Package pdftex.def Info: imgs/22_4.png  used on input line 267.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/13_4.png, id=204, 1806.75pt x 478.4274pt>
+<imgs/13_4.png, id=205, 1806.75pt x 478.4274pt>
 File: imgs/13_4.png Graphic file (type png)
 <use imgs/13_4.png>
-Package pdftex.def Info: imgs/13_4.png  used on input line 273.
+Package pdftex.def Info: imgs/13_4.png  used on input line 272.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/19_4.png, id=205, 1806.75pt x 478.4274pt>
+<imgs/19_4.png, id=206, 1806.75pt x 478.4274pt>
 File: imgs/19_4.png Graphic file (type png)
 <use imgs/19_4.png>
-Package pdftex.def Info: imgs/19_4.png  used on input line 279.
+Package pdftex.def Info: imgs/19_4.png  used on input line 278.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/0_0.png, id=206, 1806.75pt x 478.4274pt>
+<imgs/0_0.png, id=207, 1806.75pt x 478.4274pt>
 File: imgs/0_0.png Graphic file (type png)
 <use imgs/0_0.png>
-Package pdftex.def Info: imgs/0_0.png  used on input line 285.
+Package pdftex.def Info: imgs/0_0.png  used on input line 284.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/12_2.png, id=207, 1806.75pt x 478.4274pt>
+<imgs/12_2.png, id=208, 1806.75pt x 478.4274pt>
 File: imgs/12_2.png Graphic file (type png)
 <use imgs/12_2.png>
-Package pdftex.def Info: imgs/12_2.png  used on input line 291.
+Package pdftex.def Info: imgs/12_2.png  used on input line 290.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/22_3.png, id=208, 1806.75pt x 478.4274pt>
+<imgs/22_3.png, id=209, 1806.75pt x 478.4274pt>
 File: imgs/22_3.png Graphic file (type png)
 <use imgs/22_3.png>
-Package pdftex.def Info: imgs/22_3.png  used on input line 295.
+Package pdftex.def Info: imgs/22_3.png  used on input line 294.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<imgs/22_7.png, id=209, 1806.75pt x 478.4274pt>
+<imgs/22_7.png, id=210, 1806.75pt x 478.4274pt>
 File: imgs/22_7.png Graphic file (type png)
 <use imgs/22_7.png>
-Package pdftex.def Info: imgs/22_7.png  used on input line 299.
+Package pdftex.def Info: imgs/22_7.png  used on input line 298.
 (pdftex.def)             Requested size: 516.0pt x 136.63792pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -538,8 +554,8 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 304.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 304.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
 
 Package scrlfile Warning: \newpage at main aux file!
 (scrlfile)                You have output material at the main aux file.
@@ -563,25 +579,25 @@ LaTeX Warning: Text page 7 contains only floats.
 Overfull \vbox (10.1521pt too high) has occurred while \output is active []
 
  [7 </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/14_9.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/22_4.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/13_4.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/19_4.png>] [8 </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/0_0.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/12_2.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/22_3.png> </share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/imgs/22_7.png>] (/share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 304.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 304.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 303.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FE3DB575E9A26124EC8E56215FF6195F;1398.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 304.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 303.
  ) 
 Here is how much of TeX's memory you used:
- 9876 strings out of 481239
- 156173 string characters out of 5920377
+ 9913 strings out of 481239
+ 156689 string characters out of 5920377
  457129 words of memory out of 5000000
- 24892 multiletter control sequences out of 15000+600000
- 573130 words of font info for 111 fonts, out of 8000000 for 9000
+ 24924 multiletter control sequences out of 15000+600000
+ 573645 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,10n,44p,1489b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.pdf (8 pages, 1626993 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on /share/jccrews/tumor-seg/paper/mamba-tumor-seg/paper/main.pdf (8 pages, 1632623 bytes).
 PDF statistics:
- 291 PDF objects out of 1000 (max. 8388607)
- 247 compressed objects within 3 object streams
+ 297 PDF objects out of 1000 (max. 8388607)
+ 252 compressed objects within 3 object streams
  65 named destinations out of 1000 (max. 500000)
  256 words of extra memory for PDF output out of 10000 (max. 10000000)
 
