@@ -1,0 +1,63 @@
+\begin{thebibliography}{10}
+
+\bibitem{bakas2019identifying}
+S.~Bakas, M.~Reyes, A.~Jakab, {\em et~al.}, ``Identifying the best machine
+  learning algorithms for brain tumor segmentation, progression assessment, and
+  overall survival prediction in the brats challenge,'' 2019.
+
+\bibitem{ronneberger2015unet}
+O.~Ronneberger, P.~Fischer, and T.~Brox, ``U-net: Convolutional networks for
+  biomedical image segmentation,'' 2015.
+
+\bibitem{vaswani2023attention}
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez,
+  L.~Kaiser, and I.~Polosukhin, ``Attention is all you need,'' 2023.
+
+\bibitem{gu2022efficiently}
+A.~Gu, K.~Goel, and C.~Ré, ``Efficiently modeling long sequences with
+  structured state spaces,'' 2022.
+
+\bibitem{gu2023mamba}
+A.~Gu and T.~Dao, ``Mamba: Linear-time sequence modeling with selective state
+  spaces,'' 2023.
+
+\bibitem{he2015deep}
+K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
+  recognition,'' 2015.
+
+\bibitem{ma2024umamba}
+J.~Ma, F.~Li, and B.~Wang, ``U-mamba: Enhancing long-range dependency for
+  biomedical image segmentation,'' 2024.
+
+\bibitem{dosovitskiy2021image}
+A.~Dosovitskiy, L.~Beyer, A.~Kolesnikov, D.~Weissenborn, X.~Zhai,
+  T.~Unterthiner, M.~Dehghani, M.~Minderer, G.~Heigold, S.~Gelly, J.~Uszkoreit,
+  and N.~Houlsby, ``An image is worth 16x16 words: Transformers for image
+  recognition at scale,'' 2021.
+
+\bibitem{ho2020denoising}
+J.~Ho, A.~Jain, and P.~Abbeel, ``Denoising diffusion probabilistic models,''
+  2020.
+
+\bibitem{rombach2022highresolution}
+R.~Rombach, A.~Blattmann, D.~Lorenz, P.~Esser, and B.~Ommer, ``High-resolution
+  image synthesis with latent diffusion models,'' 2022.
+
+\bibitem{xie2021segformer}
+E.~Xie, W.~Wang, Z.~Yu, A.~Anandkumar, J.~M. Alvarez, and P.~Luo, ``Segformer:
+  Simple and efficient design for semantic segmentation with transformers,''
+  2021.
+
+\bibitem{wu2024ultralight}
+R.~Wu, Y.~Liu, P.~Liang, and Q.~Chang, ``Ultralight vm-unet: Parallel vision
+  mamba significantly reduces parameters for skin lesion segmentation,'' 2024.
+
+\bibitem{zhao2017pyramid}
+H.~Zhao, J.~Shi, X.~Qi, X.~Wang, and J.~Jia, ``Pyramid scene parsing network,''
+  in {\em 2017 IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR)}, pp.~6230--6239, 2017.
+
+\bibitem{dataset}
+M.~Buda, ``Brain mri segmentation,'' May 2019.
+
+\end{thebibliography}
