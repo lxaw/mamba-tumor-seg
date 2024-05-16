@@ -1,22 +1,19 @@
 ## Overview:
-This project uses Mamba blocks and some other modules to segment tumors.
+This project uses Mamba blocks and some other modules to segment tumors. We also make a small (42,000 parameter) model that can segment decently, while showcasing other Mamba-based segmentation architectures. Code and description of methods are provided.
 
-## Example segmentation:
-![Example segmentation images.](https://github.com/lxaw/mamba-segment/blob/main/example_segmentation.png?raw=true)
+## Dataset
+We used the following dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
 
-Dataset: https://www.kaggle.com/datasets/mateuszbuda/lgg-mri-segmentation
+## Example segmentations:
+![Example segmentation images.](https://github.com/lxaw/mamba-tumor-seg/blob/main/paper/imgs/19_4.png)
+![Example segmentation images.](https://github.com/lxaw/mamba-tumor-seg/blob/main/paper/imgs/22_3.png)
+![Example segmentation images.](https://github.com/lxaw/mamba-tumor-seg/blob/main/paper/imgs/22_7.png)
+More can be found in our [paper](https://github.com/lxaw/mamba-tumor-seg/blob/main/paper/main.pdf).
 
-## Relevant Papers
+## Model comparisons:
+![Compared models.](https://github.com/lxaw/mamba-tumor-seg/blob/main/paper/imgs/balls.png)
 
-- [Mamba Paper](https://arxiv.org/abs/2312.00752)
-- [U-Mamba Paper](https://arxiv.org/abs/2401.04722)
 
-## For reference to potential models:
-- [Survey on Transformer Based Vision Models](https://arxiv.org/pdf/2304.09854.pdf)
 
-## GitHub Repos to Check Out
-- [nnUNet](https://github.com/MIC-DKFZ/nnUNet)
-- [U-Mamba](https://github.com/bowang-lab/U-Mamba)
 
-## Eye Dataset - Past Competition & Results
-- [Past Competitions](https://www.kaggle.com/competitions/aptos2019-blindness-detection/discussion/97612)
+
